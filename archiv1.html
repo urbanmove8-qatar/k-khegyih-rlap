@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <title>📰 Kékhegy Hírlap – Urbanmove 8 Edition</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: #faf7f1;
+      overflow: hidden;
+    }
+
+    .book {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: row;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+    }
+
+    .page {
+      flex: none;
+      width: 100vw;
+      height: 100vh;
+      padding: 40px;
+      box-sizing: border-box;
+      scroll-snap-align: start;
+      border-left: 3px double #004080;
+      border-right: 3px double #004080;
+      background: #fffef9;
+      box-shadow: inset 0 0 8px rgba(0,0,0,0.1);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      text-align: center;
+      border-bottom: 3px double #000;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    h1, h2 {
+      color: #002244;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #0078d7;
+      padding-bottom: 5px;
+    }
+
+    h3 {
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+
+    .author {
+      font-style: italic;
+      color: #555;
+      font-size: 0.9em;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #111;
+      line-height: 1.5;
+    }
+
+    footer {
+      margin-top: auto;
+      font-size: 0.9em;
+      color: #888;
+      text-align: center;
+      user-select: none;
+    }
+
+    .nav {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .nav button {
+      background: #0078d7;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      margin: 0 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav button:hover {
+      background: #005fa3;
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="book" id="book">
+
+  <!-- Page 1 -->
+  <div class="page">
+    <header>
+      <h1>📰 KÉKHEGY HÍRLAP</h1>
+      <p>2025. július 7. • Hétfő</p>
+    </header>
+
+    <h2>🌆 Nyírmeggyes visszatért!</h2>
+    <p class="author">Írta: Microsoft Billy 🧑</p>
+    <p>
+      A mai napon TT285 bejelentette, hogy újraindítja a régi FreeDrive alapú Nyírmeggyes projektet. Ez a projekt már hónapok óta inaktív volt, miután átváltottak a Kékhegy szerverre. A közösség örül az újraélesztésnek!
+    </p>
+
+    <h3>📞 Magyar Telefon Zrt. elindította digitális telefonszolgáltatását!</h3>
+    <p class="author">Írta: Tóth Zsófi (TTBus Kft.) 👩</p>
+    <p>
+      A Kékhegy központjában működő <strong>Magyar Telefon Zrt.</strong> hivatalosan is bejelentette az új digitális telefonrendszer elindítását, amely modern IP-alapú hívásokat tesz lehetővé vezeték nélküli és mobil eszközökről egyaránt.  
+      A szolgáltatás célja, hogy leváltsa a régi analóg rendszert, és biztonságosabb, tisztább hangminőséget nyújtson az ügyfeleknek Kékhegyben és a környező településeken.
+    </p>
+    <p>
+      Az új digitális telefon használatához nem szükséges SIM-kártya, csupán internetkapcsolat és regisztrált felhasználói azonosító. A Magyar Telefon Zrt. mobilalkalmazást is kiadott, amivel a hívások könnyedén kezelhetők okostelefonon vagy táblagépen.
+    </p>
+    <p>
+      Az első visszajelzések alapján az új rendszer gyorsabb kapcsolódást, kristálytiszta hangot és extra funkciókat biztosít – például videóhívást, belső hívószámokat és akár automatikus üzenetrögzítést is.  
+      A szolgáltatás jelenleg elérhető az Urbanmove 8 rendszerrel összekötött eszközökön is, így a városi játékosok is kipróbálhatják.
+    </p>
+
+    <footer>1. oldal / Urbanmove 8 – Közlekedési hírek</footer>
+  </div>
+
+  <!-- Page 2 -->
+  <div class="page">
+    <h2>Urbanmove 8 támogatja Nyírmeggyes projektet!</h2>
+    <p class="author">Írta: Microsoft Jessica 👩</p>
+    <p>
+      Az Urbanmove 8 csapata büszkén támogatja a Nyírmeggyes projekt újraindítását, amely a közösség és a játékosok számára egyaránt fontos mérföldkő.  
+      Ez a kezdeményezés nem csak nosztalgikus utazás a múltba, hanem egy új lehetőség is arra, hogy még több játékos kapcsolódjon össze és élvezze a városi közlekedés szimulációját.  
+      Köszönjük TT285-nek és minden fejlesztőnek, akik keményen dolgoznak a projekt sikerén!
+    </p>
+
+    <footer>2. oldal / Urbanmove 8 – Közösségi támogatás</footer>
+  </div>
+  
+    <!-- Page 3 -->
+  <div class="page">
+    <h2>⛈️ Riasztás! Itéletidő-szerű vihar csapott le Magyarországra</h2>
+    <p class="author">Írta: Microsoft Adam 👨</p>
+    <p>
+      A mai napon az Országos Meteorológiai Szolgálat <strong>piros riasztást</strong> adott ki az ország több területére a várható <strong>ítéletidő-szerű zivatarok</strong> miatt. A viharokat erős szél, felhőszakadás és akár jégeső is kísérheti.
+    </p>
+    <p>
+      A riasztás főként a <em>Dunántúli</em> és <em>Északi</em> régiókra érvényes, de Kékhegy térsége is sárga fokozatú figyelmeztetés alatt áll.  
+      A hatóságok arra kérik a lakosságot, hogy lehetőség szerint <strong>ne tartózkodjanak szabadban</strong>, és kerüljék a fák, elektromos vezetékek és vízfolyások közelségét.
+    </p>
+    <p>
+      Az OMSZ azt javasolja, hogy mindenki frissítse a <strong>Vészjelző appot</strong>, és kísérje figyelemmel a hivatalos időjárási csatornákat.  
+      A következő órákban még intenzívebb cellák is kialakulhatnak, így a <strong>közlekedésben is késések</strong> és akadályok várhatók.
+    </p>
+
+    <footer>3. oldal / Időjárás – Riasztási hírek Kékhegyről</footer>
+  </div>
+
+
+</div>
+
+<div class="nav">
+  <button onclick="scrollPage(-1)">⬅ Előző oldal</button>
+  <button onclick="scrollPage(1)">Következő oldal ➡</button>
+</div>
+
+<script>
+  function scrollPage(direction) {
+    const book = document.getElementById('book');
+    const pageWidth = window.innerWidth;
+    book.scrollBy({ left: pageWidth * direction, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>

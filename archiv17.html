@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <title>📰 Kékhegy Hírlap – 2025. július 27.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: #faf7f1;
+      overflow: hidden;
+    }
+
+    .book {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: row;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+    }
+
+    .page {
+      flex: none;
+      width: 100vw;
+      height: 100vh;
+      padding: 40px;
+      box-sizing: border-box;
+      scroll-snap-align: start;
+      border-left: 3px double #004080;
+      border-right: 3px double #004080;
+      background: #fffef9;
+      box-shadow: inset 0 0 8px rgba(0,0,0,0.1);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      text-align: center;
+      border-bottom: 3px double #000;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    h1, h2 {
+      color: #002244;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #0078d7;
+      padding-bottom: 5px;
+    }
+
+    h3 {
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+
+    .author {
+      font-style: italic;
+      color: #555;
+      font-size: 0.9em;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #111;
+      line-height: 1.5;
+    }
+
+    footer {
+      margin-top: auto;
+      font-size: 0.9em;
+      color: #888;
+      text-align: center;
+      user-select: none;
+    }
+
+    .nav {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .nav button {
+      background: #0078d7;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      margin: 0 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav button:hover {
+      background: #005fa3;
+    }
+
+    /* Image zoom on hover */
+    img {
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Modal styles for clicked image */
+    #imgModal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.8);
+      align-items: center;
+      justify-content: center;
+    }
+    #imgModal img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 0 20px #000;
+    }
+    #imgModal .closeBtn {
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size: 2.5rem;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding: 20px;
+      }
+    }
+    
+    /* Default cursor for everything */
+body {
+  cursor: url('https://files.catbox.moe/jcefpe.cur'), auto; /* jcefpe.cur is default */
+}
+
+/* Cursor for nav links */
+.nav button {
+  cursor: url('https://files.catbox.moe/ajx6ik.cur'), pointer; /* pointer fallback */
+}
+
+.nav button:hover {
+  cursor: url('https://files.catbox.moe/ajx6ik.cur'), pointer;
+}
+
+/* Cursor for buttons */
+img:hover {
+  cursor: url('https://files.catbox.moe/ajx6ik.cur'), pointer;
+}
+  </style>
+</head>
+<body>
+
+<div class="book" id="book">
+
+<!-- Page 1 – OMSZ Weather Update: Heves zivatar figyelmeztetés -->
+<div class="page">
+  <header>
+    <h1>📰 KÉKHEGY HÍRLAP</h1>
+    <p>2025. július 27. • Vasárnap – Tizenhatodik kiadás</p>
+    <p>Következő kiadás: Holnap 10:00 (Kivéve szombaton)</p>
+    <a href="ujsagarchiv.html">Érdekelnek a régi kiadások?</a>
+  </header>
+
+  <h2>🌤️ OMSZ: Jelenleg nincs időjárási figyelmeztetés Kékhegyen és Budapesten</h2>
+<p class="author">Írta: Tóth Anna 👱‍♀️ (Friss OMSZ napi jelentés alapján)</p>
+
+<p>
+  Az Országos Meteorológiai Szolgálat <strong>2025. július 30-án</strong>, szerdán megerősítette, hogy <strong>nincs érvényben időjárási figyelmeztetés</strong> sem Kékhegy, sem Budapest térségére. 
+  A HungaroMet aktuális térképe <strong>zöld jelzést</strong> mutat, vagyis az elkövetkező órákban nem várható veszélyes időjárási esemény.
+</p>
+
+<p>
+  <strong>Budapesten</strong> és <strong>Kékhegyen</strong> a nappali hőmérséklet 28–32°C között alakul, gyenge légmozgással és változóan felhős, többnyire napos idővel. Az <strong>UV-index magas</strong>, ezért <strong>napközben ajánlott a fényvédelem</strong>, főleg 11 és 15 óra között.
+</p>
+
+<p>
+  A nyugodt idő ellenére a meteorológusok azt javasolják, hogy aki hosszabb időt tölt a szabadban, <strong>figyeljen a megfelelő folyadékbevitelre</strong>, valamint <strong>viseljen világos, szellős ruházatot</strong>.
+</p>
+
+<h3>Mit vegyek föl ma?</h3>
+<ul>
+  <li><strong>Rövid ujjú póló vagy könnyű ing</strong> – a meleg miatt érdemes szellősen öltözni.</li>
+  <li><strong>Vékony, világos nadrág vagy rövidnadrág</strong> – ne izzadj szét a városban.</li>
+  <li><strong>Baseball sapka vagy kalap</strong> – véd a naptól.</li>
+  <li><strong>Napszemüveg</strong> – stílusos és hasznos.</li>
+  <li><strong>Naptej (legalább 30-as faktor)</strong> – ne égj le, bro!</li>
+</ul>
+
+<p>
+  Jelenleg tehát <strong>sem zivatar, sem felhőszakadás</strong> nem fenyeget, de a tartós meleg és erős napsugárzás miatt <strong>továbbra is érdemes odafigyelni</strong> az egészségvédelemre.
+</p>
+
+<img src="https://www.idokep.hu/terkep/hu600/idokep2.webp" alt="OMSZ Riasztási térkép – Jelenleg zöld zóna" width="600" height="auto"
+onerror="this.onerror=null; this.src='https://urbanmove8.neocities.org/images/errorimage.png';" />
+
+<p>Forrás(ok): <a href="https://met.hu">HungaroMet (OMSZ)</a>, <a href="https://idokep.hu">Időkép.hu</a></p>
+
+<footer>1. oldal / Időjárás – Nincs riasztás érvényben</footer>
+</div>
+
+<!-- Page 2 – TTMove megszűnése -->
+<div class="page">
+  <h2>🚨 TTMove Urbanmove megszűnt a Nyírmeggyes és Kékhegy projektek miatt</h2>
+  <p class="author">Írta: Kosztolányi Nándor 🧑 (Helyi tudósító)</p>
+
+  <p>
+    2025 nyarán hivatalosan is bejelentették, hogy a népszerű TTMove Urbanmove játék elavulttá vált, és nem fog több fejlesztést kapni. A projektet súlyosan érintették a Nyírmeggyes és Kékhegy környéki fejlesztések, melyek jelentős erőforrásokat vontak el a csapattól.
+  </p>
+
+  <p>
+    A fejlesztők közlése szerint az Urbanmove 8 alternatívájaként ajánlják a Nyírmeggyes Urbanmove játékot, amely frissebb modellekkel és több funkcióval várja a rajongókat. 
+  </p>
+
+  <p>
+    „FIGYELEM! Ez a játék már elavult, nem lesz fejlesztve, és tartalmaz toolbox modeleket! (A fejlesztőnek nincs kedve kijavítani :/). Nem lesz több update, e játék helyett próbáljátok ki a Nyírmeggyes Urbanmoveot!” – olvasható a hivatalos Roblox oldal bejegyzésében.
+  </p>
+
+  <p>
+    A közösség megosztott a hír kapcsán, de sokan már az új Nyírmeggyes Urbanmove fejlesztéseit várják, hogy újra aktív játékélményhez jussanak.
+  </p>
+
+  <footer>2. oldal / Játékvilág – TTMove Urbanmove megszűnése és átállás Nyírmeggyesre</footer>
+</div>
+
+
+  <!-- Page 3 – TTBus Kft. friss hírek -->
+<div class="page">
+  <h2>🚌 TTBus Kft.: Újraindult a 9-es és 11-es busz, valamint a Kékhegyi Vasút</h2>
+  <p class="author">Írta: Blaha Júlia 👩 (TTBus Kft.)</p>
+
+  <p>
+    Jó hír a közlekedőknek: a TTBus Kft. bejelentette, hogy a <strong>heves zivatarokat követően</strong> ismét elérhető a <strong>9-es és 11-es autóbuszjárat</strong>, valamint a <strong>Kékhegyi Vasút</strong> is újraindult a megszokott menetrend szerint.
+  </p>
+  <p>
+    Az elmúlt napok időjárási nehézségei miatt ideiglenesen szüneteltették ezeket a szolgáltatásokat, azonban a javítási és ellenőrzési munkák sikeres lezárását követően ma reggel 6:00 órától minden érintett vonal újra közlekedik.
+  </p>
+  <p>
+    A TTBus Kft. köszöni az utasok türelmét és együttműködését a viharos időszak alatt. A vállalat kiemelte, hogy a jövőben is elsődleges céljuk az utasok biztonságos és megbízható szállítása.
+  </p>
+  <p>
+    Az érintett járatok menetrendje elérhető a TTBus hivatalos weboldalán, illetve a mobilalkalmazásban is frissítették az adatokat.
+  </p>
+
+  <footer>3. oldal / TTBus frissítés – Újraindultak a szolgáltatások</footer>
+</div>
+
+  <!-- Page 4 – Kékhegy Közösségi Programok -->
+  <div class="page">
+    <h2>🎉 Kékhegy közösségi hírek: Nyári programok és lehetőségek</h2>
+    <p class="author">Írta: Kovács Eszter 👩‍🎨 (Kékhegyi Közösségi Hivatal)</p>
+    
+    <p>
+      Ahogy a nyár egyre melegebbé válik, Kékhegy lakói egyre többet gondolkodnak azon, hogyan tölthetik aktívan és szórakoztatóan az időt a családjukkal és barátaikkal. Örömmel jelentjük be, hogy a Kékhegyi Közösségi Hivatal idén is számos eseményt és programot szervez a lakosság számára.
+    </p>
+    <p>
+      Július folyamán többek között lesznek szabadtéri filmvetítések a Kékhegyi Parkban, kézműves foglalkozások gyerekeknek a helyi művelődési házban, valamint tánctanfolyamok és sportnapok a fiatalabb korosztálynak. Kiemelt programként említhetjük a július 20-i Nyári Vásárt, ahol helyi termelők árulják majd friss zöldségeiket, gyümölcseiket és kézműves termékeiket.
+    </p>
+    <p>
+      Fontos megjegyezni, hogy a programok egy része a jelenlegi időjárási viszonyok miatt módosulhat, ezért kérjük a résztvevőket, hogy folyamatosan figyeljék a hivatalos közösségi oldalakat és a helyi hirdetőtáblákat a friss információkért.
+    </p>
+    <p>
+      A közösségi hivatal örömmel vár mindenkit, aki aktívabbá szeretné tenni a nyári hónapokat, és élvezni szeretné a helyi közösség összetartó erejét. A részvétel általában ingyenes vagy nagyon kedvezményes, így bátran lehet csatlakozni akár barátokkal, akár egyedül.
+    </p>
+
+    <img src="https://cdn.pixabay.com/photo/2016/11/29/06/09/festival-1869511_1280.jpg" alt="Nyári közösségi program" height="auto" width="500"
+    onerror="this.onerror=null; this.src='https://urbanmove8.neocities.org/images/errorimage.png';" />
+
+    <footer>4. oldal / Közösségi élet – Helyi programok</footer>
+  </div>
+  
+  <!-- Page 5 – Óriási főnyeremény az ötös lottón július végén -->
+<div class="page">
+  <h2>💰 Több milliárdos nyeremény talált gazdára az ötös lottón július utolsó hétvégéjén</h2>
+  <p class="author">Írta: Horváth Lilla 👩‍💻 (Szerencsejáték szakértő)</p>
+
+  <p>
+    2025. július 26-án, szombaton ismét megmozdult a szerencse kereke: az ötös lottó főnyereménye, több mint <strong>4 milliárd 77 millió forint</strong> talált gazdára egyetlen szerencsés játékos által. Ez az összeg a játék történetének egyik legkiemelkedőbb nyereménye.
+  </p>
+
+  <p>
+    A 30. héten kisorsolt számok a következők voltak:
+  </p>
+
+  <ul>
+    <li>3</li>
+    <li>14</li>
+    <li>28</li>
+    <li>37</li>
+    <li>49</li>
+  </ul>
+
+  <p>
+    Egyetlen telitalálatos szelvény volt, amely megnyerte az óriási fődíjat. A 4 találatos szelvényeket 58-an játszották meg helyesen, ők fejenként közel <strong>800 ezer forintot</strong> vihettek haza. A háromtalálatosok száma meghaladta a 4000-et, nekik 15 ezer forintos nyeremény járt.
+  </p>
+
+  <p>
+    A következő héten várható főnyeremény jelentősen visszaesik, körülbelül <strong>200 millió forint</strong> lesz, így a játékosoknak érdemes újra próbálkozniuk!
+  </p>
+
+  <p>
+    A nyertesnek a sorsolás napjától számított <strong>90 napja</strong> van arra, hogy jelentkezzen a nyereményért az <a href="https://www.szerencsejatek.hu">https://www.szerencsejatek.hu</a> oldalán vagy bármelyik hivatalos értékesítőhelyen.
+  </p>
+  
+  <p>Forrás(ok): <a href="https://index.hu">Index.hu</a></p>
+
+  <footer>5. oldal / Szerencsejáték – Óriási lottónyeremény</footer>
+</div>
+  
+<!-- Page 6 – Rejtélyes holttest a Kékhegyi Kocsma mögött -->
+<div class="page">
+  <h2>🕵️‍♂️ Rejtélyes holttestet találtak a Kékhegyi Kocsma mögött</h2>
+  <p class="author">Írta: Varga Márton 🧑‍💼 (Helyszíni tudósító)</p>
+
+  <p>
+    2025. július 22-én késő este egy helyi járókelő holttestet fedezett fel a Kékhegyi Kocsma mögötti sikátorban, ami azonnal riadalmat keltett a városban.
+  </p>
+
+  <p>
+    A helyszínre gyorsan kiérkeztek a rendőrök és a helyszínelők, akik megkezdték a vizsgálatot. A hatóságok egyelőre nem közöltek részleteket az elhunyt személy kilétéről vagy a halál okáról.
+  </p>
+
+  <p>
+    A rendőrség felhívást tett közzé, hogy aki bármilyen információval rendelkezik az esettel kapcsolatban, jelentkezzen a +36 80 123 456-os számon vagy a legközelebbi rendőrőrsön.
+  </p>
+
+  <p>
+    A helyi lakosok megrendülten fogadták a hírt, sokan a biztonság és a rend védelmének szigorítását követelik.
+  </p>
+
+  <footer>6. oldal / Helyi hírek – Rejtélyes holttest a Kékhegyi Kocsma mögött</footer>
+</div>
+
+<!-- Page 7 – Őzgida mentése Kaposváron -->
+<div class="page">
+  <h2>🦌 Őzgidát mentettek Kaposváron</h2>
+  <p class="author">Írta: Farkas Gábor 👨‍💼 (Helyszíni tudósítás)</p>
+
+  <p>
+    A kaposvári körzeti megbízottak egy külvárosi ingatlanhoz érkeztek bejelentésre, ahol egy pár hónapos őzgida bajba jutott. A kis állat a meredek partoldal tetejéről 
+    egy cserjés-bokros területre esett, és hátsó lábai beakadtak az ágak közé, így képtelen volt kiszabadulni.
+  </p>
+
+  <p>
+    A járőrök gyorsan a segítségére siettek, és bár kiszabadították, a gidának nem sikerült lábra állnia. Ekkor hívták a <strong>KÖTÉL Speciális Mentőszolgálat</strong> tagjait, 
+    akik alpintechnikával ereszkedtek le a partoldalról, majd szakszerűen ellátták a sérült őzgidát.
+  </p>
+
+  <p>
+    Az eset egy emlékezetes példa arra, hogy a közösségi összefogás és a profizmus hogyan segíthet még a legnehezebb helyzetekben is. A gidát a helyi állatorvos további kezelésre szállította.
+  </p>
+  
+  <iframe width="500" height="783" style="border: medium; overflow: hidden; display: block; margin-left: auto; margin-right: auto;" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fkotelmento%2Fposts%2Fpfbid02uYfsUsdpTTeqfkCGfdbP1L3PgtKFuBtCB6ePFmh58pb89TqfXneJUbik1c6wkmsQl&amp;show_text=true&amp;width=500" scrolling="no" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+
+  <footer>7. oldal / Helyi események – Állatmentés Kaposváron</footer>
+</div>
+
+<!-- Page 8 – Nyírmeggyes frissítés -->
+<div class="page">
+  <h2>🚍 Nyírmeggyes frissítés: Új Volvo 7700 Facelift és járatbővítés</h2>
+  <p class="author">Írta: Zsófi 👩‍🦰</p>
+
+  <p>
+    2025. július 23-án érkezett a legújabb update a Nyírmeggyes Urbanmove-hoz, amelyben bemutatták az új <strong>Volvo 7700 Facelift</strong> autóbuszt, amely immár a 3-as járaton közlekedik.
+  </p>
+
+  <p>
+    A Volvo 7700A facelift modell most <strong>30%-os kedvezménnyel</strong> érhető el a gamepass-on keresztül, így a játékosok olcsóbban juthatnak hozzá az új buszhoz. Ezen kívül kisebb változtatások történtek a térképen, illetve több hibajavítás is bekerült a frissítésbe.
+  </p>
+
+  <p>
+    A fejlesztőcsapat köszöni mindenkinek a gamepass vásárlásokat és támogatást, és kíván minden játékosnak jó szórakozást az új funkciókkal!
+  </p>
+
+  <footer>8. oldal / Játékfrissítés – Nyírmeggyes update 2025.07.23</footer>
+</div>
+
+<!-- Page 9 – TT285 figyelmeztetése: Robuxos csaló bukott le -->
+<div class="page">
+  <h2>⚠️ TT285 figyelmeztetése: Ne dőlj be a Robuxos átverésnek!</h2>
+  <p class="author">Írta: Varga Áron 👨‍💼 (Közösségi hírszerkesztő)</p>
+
+  <p>
+    2025. július 16-án, szerdán <strong>TT285</strong>, a népszerű közösségi admin, hivatalos figyelmeztetést tett közzé a <strong>Kékhegyi Discord-felhasználók</strong> számára egy újfajta <strong>Robuxos átveréssel kapcsolatban</strong>.
+  </p>
+
+  <p>
+    A figyelmeztetés szerint egy bizonyos <strong>zsombor0083</strong> nevű felhasználó különböző szervereken próbálja átverni a tagokat egy hamis <strong>Robux piramisjátékkal</strong>, és privát üzenetekben próbálja rávenni őket, hogy csatlakozzanak az általa ajánlott szerverhez.
+  </p>
+
+  <blockquote style="background-color: #ffe5e5; padding: 12px; border-left: 5px solid red;">
+    <strong>TT285 üzenete:</strong><br>
+    „Figyelem! Ez a 'csodás úriember' valószínűleg rátok for írni, és valami Robuxos piramisjátékba akar titeket belehúzni, ami valószínűleg átverés!<br>
+    Ne lépjetek be arra a szerverre!”
+  </blockquote>
+
+  <p>
+    A mellékelt képernyőmentésen egyértelműen látszik a <strong>zsombor0083</strong> felhasználó neve, akit többen is jelentettek a <strong>Kékhegyi közösségi szervereken</strong>. Az adminok már megkezdték az illető eltávolítását és a szerver védelmének erősítését.
+  </p>
+
+  <p>
+    <strong>Fontos tanács:</strong> soha ne kattints ismeretlen Discord-linkekre, különösen akkor, ha Robuxot, nyereményt vagy gyors meggazdagodást ígérnek. Ezek szinte mindig csalások!
+  </p>
+
+  <p>
+    A TT285 admin nyomatékosan kér minden felhasználót, hogy <strong>jelentsék a gyanús tevékenységet</strong>, és ne hagyják figyelmen kívül az ilyen figyelmeztetéseket. A közösség biztonsága mindannyiunk felelőssége.
+  </p>
+
+  <footer>9. oldal / Közösségi védelem – Robuxos scam figyelmeztetés</footer>
+</div>
+
+<!-- Page 10 – Közlekedési baleset a II. Rákóczi Ferenc úton -->
+<div class="page">
+  <h2>🚨 Motorkerékpáros és kamion ütközött Budapest XXI. kerületében</h2>
+  <p class="author">Írta: Kovács László 🧑‍💼 (Helyszíni tudósító)</p>
+
+  <p>
+    2025. július 22-én egy motorkerékpár és egy teherautó összeütközött a II. Rákóczi Ferenc út és a Vas Gereben utca közelében, a XXI. kerületben. Az eset során a tűzoltóság gyorsan a helyszínre érkezett, hogy megkezdje a műszaki mentést.
+  </p>
+
+  <p>
+    A mentők is kiérkeztek, hogy ellássák a sérülteket. A baleset miatt az érintett útszakaszon jelenleg csak félpályás forgalom halad, ami torlódásokat okoz a környéken.
+  </p>
+
+  <p>
+    A hatóságok felhívják a figyelmet a fokozott óvatosságra az érintett útszakaszon, és várhatóan a forgalom csak a mentési munkálatok befejezése után tér vissza a normál kerékvágásba.
+  </p>
+
+  <footer>10. oldal / Közlekedés – Baleset a XXI. kerületben</footer>
+</div>
+
+<!-- Page 11 –  -->
+<div class="page">
+  <h2>Életet mentett a rendőrök gyorsasága</h2>
+  <p class="author">Írta: Horváth Éva 👩‍💼 (Helyszíni riport)</p>
+
+  <p>
+    2025. július 29-én, kedden 16:46-kor érkezett hír, hogy még a vonat érkezése előtt sikerült a járőröknek megmenteniük egy mezőberényi férfit. 
+  </p>
+
+  <p>
+    A Somogy Vármegyei Rendőr-főkapitányság Tevékenység-irányítási Központjába 2025. július 25-én, este 20 óra körül érkezett bejelentés arról, hogy Balatonvilágoson egy férfi végzetes lépésre szánva magát, a vasúti síneken gyalogol.
+  </p>
+
+  <p>
+    Az egyenruhások azonnal a helyszínre siettek, és rövid időn belül megtalálták a sínek mentén tartózkodó, elkeseredett 30 éves férfit, akit még a vonat megérkezése előtt biztonságba helyeztek. A mentőszolgálat megérkezéséig szóval tartották, hogy segítsenek neki – tájékoztatta szerkesztőségünket a Somogy Vármegyei Rendőr-főkapitányság Kommunikációs Szolgálata.
+  </p>
+    
+  <p>Forrás(ok): <a href="https://kapos.hu">KaposPont</a></p>
+
+  <footer>11. oldal / Rendőrségi gyors beavatkozás Mezőberényben</footer>
+</div>
+
+</div>
+
+<div class="nav">
+  <button onclick="scrollPage(-1)">⬅ Előző oldal</button>
+  <button onclick="scrollPage(1)">Következő oldal ➡</button>
+</div>
+
+<!-- Modal for image zoom -->
+<div id="imgModal" onclick="closeModal(event)">
+  <span class="closeBtn" title="Bezárás">&times;</span>
+  <img id="modalImg" src="" alt="Nagyított kép" />
+</div>
+
+<script>
+  function scrollPage(direction) {
+    const book = document.getElementById('book');
+    const pageWidth = window.innerWidth;
+    book.scrollBy({ left: pageWidth * direction, behavior: 'smooth' });
+  }
+  
+  // Open modal when image clicked
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const modal = document.getElementById('imgModal');
+      const modalImg = document.getElementById('modalImg');
+      modal.style.display = 'flex';
+      modalImg.src = this.src;
+      modalImg.alt = this.alt || 'Nagyított kép';
+    });
+  });
+
+  // Close modal when clicking outside image or on close button
+  function closeModal(e) {
+    if (
+      e.target.id === 'imgModal' ||
+      e.target.classList.contains('closeBtn')
+    ) {
+      const modal = document.getElementById('imgModal');
+      modal.style.display = 'none';
+      document.getElementById('modalImg').src = '';
+    }
+  }
+
+  // Close modal on ESC key
+  window.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      const modal = document.getElementById('imgModal');
+      modal.style.display = 'none';
+      document.getElementById('modalImg').src = '';
+    }
+  });
+</script>
+
+</body>
+</html>

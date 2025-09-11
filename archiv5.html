@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <title>📰 Kékhegy Hírlap – 2025. július 11.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: #faf7f1;
+      overflow: hidden;
+    }
+
+    .book {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: row;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+    }
+
+    .page {
+      flex: none;
+      width: 100vw;
+      height: 100vh;
+      padding: 40px;
+      box-sizing: border-box;
+      scroll-snap-align: start;
+      border-left: 3px double #004080;
+      border-right: 3px double #004080;
+      background: #fffef9;
+      box-shadow: inset 0 0 8px rgba(0,0,0,0.1);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      text-align: center;
+      border-bottom: 3px double #000;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    h1, h2 {
+      color: #002244;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #0078d7;
+      padding-bottom: 5px;
+    }
+
+    h3 {
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+
+    .author {
+      font-style: italic;
+      color: #555;
+      font-size: 0.9em;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #111;
+      line-height: 1.5;
+    }
+
+    footer {
+      margin-top: auto;
+      font-size: 0.9em;
+      color: #888;
+      text-align: center;
+      user-select: none;
+    }
+
+    .nav {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .nav button {
+      background: #0078d7;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      margin: 0 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav button:hover {
+      background: #005fa3;
+    }
+
+    /* Image zoom on hover */
+    img {
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Modal styles for clicked image */
+    #imgModal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.8);
+      align-items: center;
+      justify-content: center;
+    }
+    #imgModal img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 0 20px #000;
+    }
+    #imgModal .closeBtn {
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size: 2.5rem;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="book" id="book">
+
+  <!-- Page 1 – OMSZ Weather -->
+  <div class="page">
+    <header>
+      <h1>📰 KÉKHEGY HÍRLAP</h1>
+      <p>2025. július 11. • Péntek - Ötödik kiadás</p>
+      <p>Következő kiadás: Holnap 10:00</p>
+    </header>
+
+    <h2>🌩️ OMSZ: Mérsékelt zivatarriadó érvényben!</h2>
+    <p class="author">Írta: Tóth Anna 👱‍♀️ (OMSZ figyelmeztetés alapján)</p>
+    <p>
+      Az Országos Meteorológiai Szolgálat továbbra is <strong>mérsékelt zivatarveszélyt</strong> jelez Kékhegy és Budapest térségére, ami nem csupán egy szimpla időjárási figyelmeztetés, hanem komoly veszélyforrás lehet a következő 24 órában. A mai nap során várhatóan több <strong>intenzív zápor és villámlás</strong> is előfordulhat, melyekhez erős, akár 60–70 km/h közötti széllökések társulhatnak. Ez a kombináció jelentős kockázatot rejt magában, különösen a szabadban tartózkodók és a közlekedők számára.
+    </p>
+    <p>
+      A helyiek között több vélemény is megjelent, hogy a várható <strong>moderált esőzés holnap éjfél körül</strong> veheti kezdetét, ami Budapesten és környékén komolyabb vihar kialakulását jelezheti előre. Az eső mellett különösen a jégeső okozhat jelentős károkat, hiszen a jégszemek nem csak a növényeket, hanem az épületek tetőszerkezetét, valamint az autókat is veszélyeztetik. Az OMSZ szakemberei arra figyelmeztetnek, hogy a zivatarok előrehaladtával a légköri viszonyok hirtelen megváltozhatnak, ezért a lakosságnak érdemes napközben is figyelemmel kísérni a friss jelentéseket.
+    </p>
+    <p>
+      <strong>⚠️ Frissítés:</strong> Az Országos Meteorológiai Szolgálat legfrissebb előrejelzése szerint holnap, 2025. július 12-én éjfélkor egy <em>jégesővel kísért zivatar</em> érkezik, amely miatt a TTBus Kft. úgy döntött, hogy <strong>ideiglenesen felfüggeszti</strong> a Kékhegy Vasút üzemeltetését és a helyi buszjáratokat, hogy megóvja az utasokat és a járműveket a várható károktól és veszélyektől. Ez egy elővigyázatossági intézkedés, amelyet a biztonság mindennél előrébb helyezése indokol.</p>
+
+    <img src="https://www.idokep.hu/kistersegi/riaszt_24_transp.png?1752222334" alt="Zivatar előrejelzés térkép" height="auto" width="400">
+
+    <p>Forrás(ok): <a href="https://idokep.hu">Időkép.hu</a>, <a href="https://met.hu">met.hu</a></p>
+
+    <footer>1. oldal / Időjárás – OMSZ jelentés</footer>
+  </div>
+
+  <!-- Page 2 – Magyar Telefon Zrt. Átkozott telefonszám -->
+  <div class="page">
+    <h2>📞 Magyar Telefon Zrt.: Átkozott telefonszám az éj leple alatt</h2>
+    <p class="author">Írta: Kiss Márton 👨‍💼</p>
+    <p>
+      A Magyar Telefon Zrt. egy különleges és egyben rejtélyes <strong>"átkozott" telefonszámot</strong> hozott létre, mely a <strong>009131313</strong> számot viseli. Több helyi lakos számolt be arról, hogy amikor ezen a számon hívást kezdeményeznek, nem mindennapi hanghatásokkal találkoznak. A bejövő hívások során furcsa, időnként torzított <em>glitch-szerű zajok</em> hallhatók, melyeket egy alacsony, mély hangon beszélő, titokzatos személy hangjai követnek, ami tovább növeli a szám rejtélyességét és ijesztő jellegét.
+    </p>
+    <p>
+      Az érintett hívók között számos városi legenda kering erről a telefonszámról, aminek eredete és célja máig nem teljesen tisztázott. Egyesek úgy vélik, hogy a szám valamilyen kísérleti kommunikációs eszköz része, míg mások a túlvilági üzenetek hordozójának tartják. Ennek ellenére a helyiek egy jelentős része elkerüli a szám hívását, nehogy különös vagy félelmetes élményekben legyen részük, míg a kíváncsiabbak próbára teszik bátorságukat és ismételten hívogatják a számot, hogy több információt szerezzenek az ismeretlenről.
+    </p>
+    <p>
+      Ez az eset egy újabb példa arra, hogy a modern technológia és a városi legendák miként fonódnak össze, és hogyan tudnak egyetlen egyszerű telefonszám köré misztikus, izgalmas történetek szövődni. A Magyar Telefon Zrt. egyelőre nem adott ki hivatalos magyarázatot a furcsa jelenségekre, ami tovább szítja a találgatásokat és a közösségi beszélgetéseket e témában.</p>
+
+    <img src="https://files.catbox.moe/wu35i1.png" alt="Hívás közben" height="auto" width="600" />
+
+    <footer>2. oldal / Helyi rejtély – Átkozott telefonszám</footer>
+  </div>
+
+  <!-- Page 3 – TTBus Kft. bejelentése -->
+  <div class="page">
+    <h2>🚌 TTBus Kft.: Közlekedési szolgáltatások felfüggesztése</h2>
+    <p class="author">Írta: Blaha Júlia 👩 (TTBus Kft.)</p>
+
+    <p>
+      A TTBus Kft. hivatalos közleményében bejelentette, hogy a <strong>holnapi, 2025. július 12-én éjfélkor várható jégesővel kísért mérsékelt zivatar</strong> miatt kénytelenek ideiglenesen leállítani a <strong>Kékhegy Vasút</strong> működését, valamint az érintett városi <strong>buszjáratokat</strong>. Ez a döntés a közlekedésbiztonság és az utasok védelme érdekében született meg, hiszen a zivatar okozta szélsőséges időjárási körülmények komoly veszélyeket rejtenek magukban, amelyek akár súlyos balesetekhez és anyagi károkhoz is vezethetnek.
+    </p>
+    <p>
+      A társaság vezetősége kiemelte, hogy az intézkedés nemcsak az utasok, hanem a dolgozók biztonságát is szem előtt tartja, továbbá segít elkerülni a közlekedési eszközök meghibásodását és az ebből adódó hosszabb javítási időszakokat. A TTBus Kft. folyamatosan figyelemmel kíséri a meteorológiai helyzet alakulását, és az időjárás javulásával haladéktalanul újraindítja a szolgáltatásokat, erről pedig haladéktalanul tájékoztatja az utazóközönséget.
+    </p>
+    <p>
+      Ezúton kérjük a lakosságot, hogy a vihar elmúltáig kerüljék a közösségi közlekedés használatát a Kékhegy térségében, és kísérjék figyelemmel a TTBus Kft. hivatalos közleményeit és frissítéseit. Együttműködésük és megértésük hozzájárul ahhoz, hogy mindenki biztonságban legyen, és a helyzet mihamarabb rendeződjön.</p>
+
+    <img src="https://files.catbox.moe/kz83nc.png" alt="TTBus busz" height="auto" width="500" />
+
+    <footer>3. oldal / TTBus bejelentés – Közlekedés szünetel</footer>
+  </div>
+
+</div>
+
+<div class="nav">
+  <button onclick="scrollPage(-1)">⬅ Előző oldal</button>
+  <button onclick="scrollPage(1)">Következő oldal ➡</button>
+</div>
+
+<!-- Modal for image zoom -->
+<div id="imgModal" onclick="closeModal(event)">
+  <span class="closeBtn" title="Bezárás">&times;</span>
+  <img id="modalImg" src="" alt="Nagyított kép" />
+</div>
+
+<script>
+  function scrollPage(direction) {
+    const book = document.getElementById('book');
+    const pageWidth = window.innerWidth;
+    book.scrollBy({ left: pageWidth * direction, behavior: 'smooth' });
+  }
+  
+  // Open modal when image clicked
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const modal = document.getElementById('imgModal');
+      const modalImg = document.getElementById('modalImg');
+      modal.style.display = 'flex';
+      modalImg.src = this.src;
+      modalImg.alt = this.alt || 'Nagyított kép';
+    });
+  });
+
+  // Close modal when clicking outside image or on close button
+  function closeModal(e) {
+    if (
+      e.target.id === 'imgModal' ||
+      e.target.classList.contains('closeBtn')
+    ) {
+      const modal = document.getElementById('imgModal');
+      modal.style.display = 'none';
+      document.getElementById('modalImg').src = '';
+    }
+  }
+
+  // Close modal on ESC key
+  window.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      const modal = document.getElementById('imgModal');
+      modal.style.display = 'none';
+      document.getElementById('modalImg').src = '';
+    }
+  });
+</script>
+
+</body>
+</html>

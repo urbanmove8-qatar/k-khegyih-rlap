@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <title>📰 Kékhegy Hírlap – 2025. július 18.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: #faf7f1;
+      overflow: hidden;
+    }
+
+    .book {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: row;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+    }
+
+    .page {
+      flex: none;
+      width: 100vw;
+      height: 100vh;
+      padding: 40px;
+      box-sizing: border-box;
+      scroll-snap-align: start;
+      border-left: 3px double #004080;
+      border-right: 3px double #004080;
+      background: #fffef9;
+      box-shadow: inset 0 0 8px rgba(0,0,0,0.1);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      text-align: center;
+      border-bottom: 3px double #000;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    h1, h2 {
+      color: #002244;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #0078d7;
+      padding-bottom: 5px;
+    }
+
+    h3 {
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+
+    .author {
+      font-style: italic;
+      color: #555;
+      font-size: 0.9em;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #111;
+      line-height: 1.5;
+    }
+
+    footer {
+      margin-top: auto;
+      font-size: 0.9em;
+      color: #888;
+      text-align: center;
+      user-select: none;
+    }
+
+    .nav {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .nav button {
+      background: #0078d7;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      margin: 0 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav button:hover {
+      background: #005fa3;
+    }
+
+    /* Image zoom on hover */
+    img {
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Modal styles for clicked image */
+    #imgModal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.8);
+      align-items: center;
+      justify-content: center;
+    }
+    #imgModal img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 0 20px #000;
+    }
+    #imgModal .closeBtn {
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size: 2.5rem;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="book" id="book">
+
+<!-- Page 1 – OMSZ Weather Update -->
+<div class="page">
+  <header>
+    <h1>📰 KÉKHEGY HÍRLAP</h1>
+    <p>2025. július 18. • Péntek - Tizenegyedik kiadás</p>
+    <p>Következő kiadás: Holnap 10:00</p>
+    <a href="ujsagarchiv.html">Érdekelnek a régi kiadások?</a>
+  </header>
+
+  <h2>⛈️ OMSZ: Mérsékelt zivatarriasztás Budapest és Kékhegy térségére</h2>
+  <p class="author">Írta: Tóth Anna 👱‍♀️ (OMSZ napi jelentés alapján)</p>
+
+  <p>
+    Az Országos Meteorológiai Szolgálat <strong>2025. július 17-én</strong>, csütörtökön <strong>mérsékelt szintű zivatarriasztást</strong> adott ki Budapest és Kékhegy térségére. 
+    A zivatarokhoz erős széllökések, intenzív villámlás és helyenként jégeső is társulhat.
+  </p>
+
+  <p>
+    <strong>Budapesten</strong> jelenleg erősen felhős az ég, a délutáni órákban zivatarcellák kialakulása várható. A hőmérséklet 22–25°C között mozog, de a viharos szél hűvösebbé teheti a levegőt.
+  </p>
+
+  <p>
+    <strong>Kékhegy térségében</strong> is növekvő felhőzet tapasztalható, a déli órákra zivatarzóna érkezhet nyugati irányból. A hőmérséklet 24–27°C körül alakul. 
+    A TTBus Kft. már megkezdte az előkészületeket a közlekedési korlátozásokra.
+  </p>
+
+  <p>
+    A HungaroMet figyelmeztet: <strong>maradjunk fedett helyen zivatar idején</strong>, kerüljük a fém tárgyakat és az elektromos készülékek használatát. 
+    Javasolt a szabadtéri tevékenységek elhalasztása.
+  </p>
+
+  <img src="https://www.idokep.hu/kistersegi/riaszt_24_transp.png?1752739507" alt="OMSZ Riasztási térkép – Kékhegy és Budapest" width="600" height="auto"
+  onerror="this.onerror=null; this.src='https://urbanmove8.neocities.org/images/errorimage.png';" />
+
+  <p>Forrás(ok): <a href="https://met.hu">HungaroMet (OMSZ)</a>, <a href="https://idokep.hu">Időkép.hu</a></p>
+
+  <footer>1. oldal / Időjárás – Zivatarriasztás</footer>
+</div>
+
+<!-- Nem vagyok biztos benne hogy zápor zivatar lesz benne... HTML kód: "
+<div class="page">
+  <header>
+    <h1>📰 KÉKHEGY HÍRLAP</h1>
+    <p>2025. július 16. • Szerda - Kilencedik kiadás</p>
+    <p>Következő kiadás: Holnap 10:00</p>
+  </header>
+
+  <h2>🌥️ OMSZ: Felhős idő Budapesten, melegebb Kékhegyen – Riasztás nélkül, de zivatarveszély közel</h2>
+  <p class="author">Írta: Tóth Anna 👱‍♀️ (OMSZ napi jelentés alapján)</p>
+
+  <p>
+    Az Országos Meteorológiai Szolgálat <strong>2025. július 16-án</strong>, szerdán kiadott jelentése szerint ma <strong>nincs érvényben hivatalos riasztás</strong> Budapest és Kékhegy térségére, ugyanakkor a közelmúltban <strong>moderált zivatarriadót adtak ki</strong> az ország több részére, beleértve a főváros környékét is.
+  </p>
+
+  <p>
+    <strong>Budapesten</strong> a reggel és délelőtt borongós, több helyen felhős idő várható, a délutáni órákban pedig esély van záporokra, zivatarokra, melyeket villámlás és helyenként viharos széllökések is kísérhetnek. A hőmérséklet 20–24°C között alakul.
+  </p>
+
+  <p>
+    <strong>Kékhegy térségében</strong> továbbra is kellemes, meleg és naposabb idő várható, kevés felhővel és 24–28°C közötti hőmérséklettel. Az enyhe déli szél felfrissíti a levegőt, viszont a késő délutáni órákban zivatar kialakulására is van esély.
+  </p>
+
+  <p>
+    A TTBus Kft. megerősítette, hogy <strong>minden jármű – beleértve az Ikarus 260 és 280 típusokat – újra szolgálatban van</strong>. Az utasoknak ajánlott figyelni az aktuális menetrendeket, különösen a délutáni csúcsidőszakban és zivatarveszély esetén.
+  </p>
+
+  <img src="https://www.idokep.hu/terkep/hu600/idokep2.webp" alt="Időjárási térkép – Kékhegy térsége" width="600" height="auto">
+
+  <p>Forrás(ok): <a href="https://idokep.hu">Időkép.hu</a>, <a href="https://www.met.hu">OMSZ</a></p>
+
+  <footer>1. oldal / Időjárás – OMSZ jelentés</footer>
+</div>" -->
+
+  <!-- Page 2 – Baleset a Juci Mama Zöldség-Gyümölcs előtt -->
+  <div class="page">
+    <h3>🚗 Baleset történt a Juci Mama Zöldség-Gyümölcs bolt előtt</h3>
+    <p class="author">Írta: Szabó Péter 🧑‍💼</p>
+    <p>
+      Hétfő reggel Kékhegy egyik frekventált pontján, a Juci Mama Zöldség-Gyümölcs bolt előtt sajnálatos baleset történt. Egy személygépkocsi eddig ismeretlen okból nekiütközött egy másik autónak, amely éppen parkolóhelyről indult ki. Az ütközés következtében mindkét jármű jelentős sérüléseket szenvedett, és az egyik autó roncsolódása miatt a helyszínen forgalmi torlódás alakult ki.
+    </p>
+    <p>
+      A balesetben személyi sérülés nem történt, azonban a helyszínelés és a rendőrségi intézkedés több órán át tartott, amíg a közlekedés biztonságosan helyreállt. Többen a közelben tartózkodó helyiek közül is megosztották az eseményt a helyi közösségi csoportokban, ahol tanácsolták a sofőröket, hogy a következő időszakban legyenek különösen óvatosak a környéken, mivel a hőség és a forgalmi dugók miatt a reakcióidő is lassabb lehet.
+    </p>
+    <p>
+      A rendőrség további vizsgálatot folytat a baleset körülményeinek tisztázására, és arra kéri a lakosságot, hogy figyeljék a közlekedési szabályokat, különösen a parkolók környékén és az üzletek előtti területeken.
+    </p>
+
+    <img src="https://files.catbox.moe/v10659.jpeg" alt="Koccanás a parkolóban" height="auto" width="500"
+    onerror="this.onerror=null; this.src='https://urbanmove8.neocities.org/images/errorimage.png';" />
+
+    <footer>2. oldal / Közlekedési baleset – Helyi hírek</footer>
+  </div>
+
+  <!-- Page 3 – TTBus Kft. bejelentése -->
+<div class="page">
+  <h2>🚌 TTBus Kft.: Közlekedési korlátozások zivatar miatt</h2>
+  <p class="author">Írta: Blaha Júlia 👩 (TTBus Kft.)</p>
+
+  <p>
+    A TTBus Kft. hivatalosan is bejelentette, hogy az OMSZ által kiadott 
+    <strong>mérsékelt zivatarriasztás</strong> miatt a <strong>9-es és 11-es
+    autóbuszjáratokat</strong> azonnali hatállyal felfüggesztik, és a 
+    <strong>Kékhegy Vasút (C50)</strong> is leáll szolgálatból a várható viharok miatt.
+  </p>
+
+  <p>
+    A társaság hangsúlyozza, hogy az utasok és a dolgozók biztonsága mindennél fontosabb. 
+    A normál menetrend újraindítása az OMSZ következő előrejelzéseitől és 
+    az időjárás javulásától függ.
+  </p>
+
+  <p>
+    A TTBus kér mindenkit, hogy tájékozódjon a járatokkal kapcsolatban a 
+    <strong>hivatalos weboldalon</strong>, 
+    különösen a csúcsidőszakokban, és továbbra is számítsanak késésekre.
+  </p>
+  
+  <img src="https://files.catbox.moe/kz83nc.png" alt="Kép" height="auto" width="500"
+  onerror="this.onerror=null; this.src='https://urbanmove8.neocities.org/images/errorimage.png';" />
+
+  <footer>3. oldal / TTBus bejelentés – Korlátozások zivatar miatt</footer>
+</div>
+
+  <!-- Page 4 – Kékhegy Közösségi Programok -->
+  <div class="page">
+    <h2>🎉 Kékhegy közösségi hírek: Nyári programok és lehetőségek</h2>
+    <p class="author">Írta: Kovács Eszter 👩‍🎨 (Kékhegyi Közösségi Hivatal)</p>
+    
+    <p>
+      Ahogy a nyár egyre melegebbé válik, Kékhegy lakói egyre többet gondolkodnak azon, hogyan tölthetik aktívan és szórakoztatóan az időt a családjukkal és barátaikkal. Örömmel jelentjük be, hogy a Kékhegyi Közösségi Hivatal idén is számos eseményt és programot szervez a lakosság számára.
+    </p>
+    <p>
+      Július folyamán többek között lesznek szabadtéri filmvetítések a Kékhegyi Parkban, kézműves foglalkozások gyerekeknek a helyi művelődési házban, valamint tánctanfolyamok és sportnapok a fiatalabb korosztálynak. Kiemelt programként említhetjük a július 20-i Nyári Vásárt, ahol helyi termelők árulják majd friss zöldségeiket, gyümölcseiket és kézműves termékeiket.
+    </p>
+    <p>
+      Fontos megjegyezni, hogy a programok egy része a jelenlegi időjárási viszonyok miatt módosulhat, ezért kérjük a résztvevőket, hogy folyamatosan figyeljék a hivatalos közösségi oldalakat és a helyi hirdetőtáblákat a friss információkért.
+    </p>
+    <p>
+      A közösségi hivatal örömmel vár mindenkit, aki aktívabbá szeretné tenni a nyári hónapokat, és élvezni szeretné a helyi közösség összetartó erejét. A részvétel általában ingyenes vagy nagyon kedvezményes, így bátran lehet csatlakozni akár barátokkal, akár egyedül.
+    </p>
+
+    <img src="https://cdn.pixabay.com/photo/2016/11/29/06/09/festival-1869511_1280.jpg" alt="Nyári közösségi program" height="auto" width="500"
+    onerror="this.onerror=null; this.src='https://urbanmove8.neocities.org/images/errorimage.png';" />
+
+    <footer>4. oldal / Közösségi élet – Helyi programok</footer>
+  </div>
+  
+    <!-- Page 5 – Kékhegyi Fesztivál -->
+  <div class="page">
+    <h2>🎤 Kékhegyi Fesztivál 2025 – Ünnepeljük együtt a nyarat!</h2>
+    <p class="author">Írta: Varga Dániel 👨‍🎤🎸 (Kékhegyi Rendezvényszervező)</p>
+    
+    <p>
+      Július 25-én a Kékhegyi Park ismét megtelik élettel és zenével, hiszen idén is megrendezésre kerül a népszerű <strong>Kékhegyi Fesztivál</strong>. Ez a nyári esemény az egész környék legnagyobb ünnepe, ahol minden korosztály megtalálhatja a kedvére való programot és kikapcsolódást.
+    </p>
+    <p>
+      A fesztiválon helyi és országos ismertségű zenekarok lépnek fel, köztük rock, pop, és elektronikus műfajokban is. Emellett számos gasztronómiai stand várja a látogatókat, ahol frissítő italokat és ízletes helyi finomságokat kóstolhatnak meg. Természetesen a gyerekekről sem feledkeznek meg: külön játszóház, arcfestés és kézműves foglalkozások biztosítják a szórakozást a kicsiknek.
+    </p>
+    <p>
+      A szervezők arra kérik a látogatókat, hogy hozzanak magukkal pokrócot vagy széket a kényelmes pihenéshez, és ne feledkezzenek meg a megfelelő napvédelemről, mert a nap sugarai ilyenkor még erősen sütnek.
+    </p>
+    <p>
+      A Kékhegyi Fesztivál kiváló alkalom arra, hogy a közösség tagjai találkozzanak, megismerjék egymást, és együtt töltsenek el egy felejthetetlen napot a szabadban. Jegyek elővételben már kaphatók a helyi közösségi irodában és online.
+    </p>
+
+    <img src="https://cdn.pixabay.com/photo/2018/08/21/17/43/music-festival-3618756_1280.jpg" alt="Kékhegyi Fesztivál koncert" height="auto" width="500"
+    onerror="this.onerror=null; this.src='https://urbanmove8.neocities.org/images/errorimage.png';" />
+
+    <footer>5. oldal / Kékhegyi Fesztivál – Nyári közösségi esemény</footer>
+  </div>
+  
+  <!-- Page 6 – Rendőri akció Faluszélen -->
+<div class="page">
+  <h2>🚨 Rendőrségi razzia Faluszélén: Házkutatás és letartóztatás történt</h2>
+  <p class="author">Írta: Gyulai Bálint 🧑‍✈️ (Helyszíni tudósító)</p>
+
+  <p>
+    2025. július 17-én a délelőtti órákban a rendőrség nagyszabású <strong>razziát hajtott végre Faluszéle központjában</strong>, egy régi, elhagyatott raktárépületben. A lakosság döbbenten figyelte, ahogy több járőrautó és kommandós egység érkezett a helyszínre.
+  </p>
+
+  <p>
+    A hivatalos közlemény szerint <strong>illegális szerencsejáték-tevékenységet</strong> folytattak az épületben. A rendőrség több számítógépet, nyomtatott jegyzékeket, és készpénzt is lefoglalt. Két személyt a helyszínen <strong>előállítottak</strong>, a nyomozás tovább folyik.
+  </p>
+
+  <p>
+    A lakosok vegyes érzelmekkel fogadták az eseményt – sokan örülnek, hogy a rendőrség fellép a törvénytelen dolgok ellen, mások viszont aggasztónak tartják, hogy egy ilyen hely működhetett a közösség szívében.
+  </p>
+
+  <footer>6. oldal / Helyi hírek – Rendőrségi akció Faluszélén</footer>
+</div>
+
+<!-- Page 7 – Eltűnt két fiatal Kékhegyen -->
+<div class="page">
+  <h2>🚨 Eltűnt két gyermek Kékhegy külterületén – Nagyszabású keresés indult</h2>
+  <p class="author">Írta: Szilágyi Dóra 👩‍💼 (Helyszíni tudósítás)</p>
+
+  <p>
+    Kékhegy városát megrázta a hír: <strong>egy 12 éves fiú és egy 11 éves lány</strong> eltűnt 2025. július 16-én, szerda délután, 
+    amikor az iskolai nyári szünetet kihasználva <strong>sétára indultak a Kéki-erdő szélén</strong>.
+  </p>
+
+  <p>
+    A gyerekek utoljára 14:15 körül látszottak a Kékhegyi vasútállomás közelében. A szülők 16:00-kor jelentették az eltűnésüket, 
+    és a <strong>helyi rendőrség, polgárőrség, valamint önkéntesek</strong> azonnal keresőakciót indítottak.
+  </p>
+
+  <p>
+    A rendőrség nyilatkozata szerint jelenleg <strong>drónokat és hőkamera-felvételeket</strong> is bevetnek a kereséshez. A városi vezetés 
+    mindenkit arra kér, hogy aki bármilyen információval rendelkezik, azonnal értesítse a hatóságokat a 
+    <strong>+36 80 123 456</strong> telefonszámon vagy a legközelebbi rendőrőrsön.
+  </p>
+
+  <p>
+    Az eltűntek: <strong>Kiss Martin</strong> (12 éves, szőke, kék pólóban) és <strong>Nagy Zsófi</strong> (11 éves, barna hajú, rózsaszín hátizsákkal).
+    Mindketten Kékhegy lakosai és jó barátok voltak. A családokat pszichológus is segíti a nehéz órákban.
+  </p>
+
+  <p>
+    A keresés továbbra is tart az éjszakába nyúlóan is. A kékhegyi lakosság egy emberként fogott össze, hogy a gyerekeket biztonságban hazahozzák.
+  </p>
+  
+  <p>
+    A keresést nehezíti, hogy az OMSZ közben <strong>mérsékelt zivatarriasztást adott ki a térségre</strong>, ezért az egységeknek 
+    fokozott elővigyázatossággal kell dolgozniuk.
+</p>
+
+  <footer>7. oldal / Közélet – Gyermekek eltűnése Kékhegyen</footer>
+</div>
+
+<!-- Page 8 – Kékhegyi merénylet -->
+<div class="page">
+  <h2>🚨 Kékhegyi merénylet: Robbanás rázta meg a várost hajnalban</h2>
+  <p class="author">Írta: Farkas Gábor 👨‍💼 (Helyszíni tudósító)</p>
+
+  <p>
+    2025. július 17-én, csütörtök hajnalban, pontosan 3 órakor egy robbanás történt Kékhegy központjában, ami sokkolta a helyi lakosokat és komoly aggodalmat váltott ki a közbiztonság iránt.
+  </p>
+
+  <p>
+    Az eddigi információk szerint ismeretlen elkövető egy robbanószerkezetet helyezett el a városi piactér közelében, amely detonált, és jelentős anyagi kárt okozott a környező üzletekben és épületekben. Szerencsére személyi sérülés nem történt, azonban több lakó és üzlettulajdonos mély sokkban van az eset miatt.
+  </p>
+
+  <p>
+    A helyszínre azonnal kiérkeztek a rendőrség és a tűzoltóság egységei, akik lezárták a környéket és megkezdték a helyszínelést. A hatóságok fokozott készültséget rendeltek el Kékhegy teljes területén, és országos szintű nyomozás indult az ügy felderítésére.
+  </p>
+
+  <p>
+    A rendőrség egyelőre nem közölt részleteket az elkövető személyéről, azonban több szemtanút is hallgattak meg, akik egy gyanús férfit láttak a robbanás előtti órákban a közelben.
+  </p>
+
+  <p>
+    Kékhegy polgármestere a tragédia kapcsán elmondta: „Ez a merénylet mély sebet ejtett városunk szívén. Minden erőnkkel azon vagyunk, hogy a bűnöst mielőbb kézre kerítsük, és visszaállítsuk a békét és biztonságot közösségünkben.”
+  </p>
+
+  <p>
+    A helyi lakosok és vállalkozók közösségi összefogással terveznek megemlékezést, valamint szigorúbb biztonsági intézkedéseket sürgetnek a jövőbeni hasonló tragédiák elkerülése érdekében.
+  </p>
+
+  <footer>8. oldal / Helyszíni tudósítás – Kékhegyi merénylet</footer>
+</div>
+
+<!-- Page 9 – Kékhegyi könyvtár új beszerzései -->
+<div class="page"> <h2>📚 Kékhegyi könyvtár friss könyvgyűjteménye – Klasszikusok és modern művek</h2> <p class="author">Írta: Zsófi 👩‍🦰</p> <p> A Kékhegyi Könyvtár júliusban új könyvekkel bővült, amelyek között megtalálhatók a magyar irodalom klasszikusai, valamint a legújabb tudományos és technológiai kiadványok is. </p> <p> A könyvtár vezetősége hangsúlyozza, hogy fontos az olvasás népszerűsítése a fiatalabb generációk körében, ezért külön programokat is szerveznek diákoknak és családoknak. </p> <p> A könyvek között szerepelnek történelmi regények, IT témájú szakkönyvek, valamint a legfrissebb ifjúsági irodalom is. </p> <footer>9. oldal / Kultúra – Kékhegyi könyvtár újdonságai</footer> </div>
+
+<!-- Page 10 – Új Roblox Model Piac nyílt Kékhegyen -->
+<div class="page">
+  <h2>🛒 Új Roblox Model Market nyílt Kékhegyen – Urbanmove modellek elérhetők!</h2>
+  <p class="author">Írta: Szalai Petra 👩‍💻 (Digitális közösségi tudósító)</p>
+
+  <p>
+    2025. július 17-én, csütörtök délután hivatalosan is elindult a <strong>Kékhegyi Roblox Model Market</strong>, egy új online piactér, amely kifejezetten a Roblox-játékosoknak és fejlesztőknek kínál Urbanmove-témájú modelleket.
+  </p>
+
+  <p>
+    Az első feltöltött tartalmak között megtalálható például a <strong>Volvo 7000A csuklósbusz</strong>, amely <strong>50 Robuxért</strong> vásárolható meg – ez körülbelül <strong>260 forintnak</strong> felel meg. Emellett több <strong>ingyenes modell</strong> is elérhető a platformon, amelyek tökéletesek kezdő fejlesztők számára.
+  </p>
+
+  <p>
+    A piac jelenleg főként <strong>Urbanmove 8</strong>-hoz kapcsolódó járművekre és kiegészítőkre fókuszál, de a fejlesztők célja, hogy idővel <strong>Alfa Mall RP</strong> és más népszerű helyi projektek is bekerüljenek a kínálatba.
+  </p>
+
+  <p>
+    A webes felület <strong>egyszerű, hirdetésalapú</strong> működésre épül – az oldal alsó sávjában Roblox játékosok vagy más modellezők reklámozhatják saját alkotásaikat. A felhasználók ezt vegyesen fogadták: egyesek szerint zavaróak a hirdetések, míg mások örülnek, hogy így új modelleket találhatnak.
+  </p>
+
+  <p>
+    A Model Market nem hivatalos Roblox-termék, de a <strong>Kékhegyi közösség tagjai</strong> szerint óriási lehetőséget rejt magában: egy központi piactér, ahol megbízható és lokális modellekhez juthatnak hozzá a fejlesztők.
+  </p>
+
+  <p>
+    A projektet a <strong>Kékhegyi Informatikai Központ</strong> és több közösségi Roblox-fejlesztő támogatja. A jövőben várható, hogy prémium modellek, szkriptek, sőt egyéni buszgarázs-rendszerek is megjelennek a piactéren.
+  </p>
+  
+  <img src="https://urbanmove8.neocities.org/kekhegy/kepek/K%C3%A9perny%C5%91k%C3%A9p%202025-07-18%20135544.png" alt="Kékhegyi Roblox Model Market" height="auto" width="800"
+  onerror="this.onerror=null; this.src='https://urbanmove8.neocities.org/images/errorimage.png';" />
+
+  <footer>10. oldal / Digitális közösség – Roblox Model Market Kékhegyen</footer>
+</div>
+
+</div>
+
+<div class="nav">
+  <button onclick="scrollPage(-1)">⬅ Előző oldal</button>
+  <button onclick="scrollPage(1)">Következő oldal ➡</button>
+</div>
+
+<!-- Modal for image zoom -->
+<div id="imgModal" onclick="closeModal(event)">
+  <span class="closeBtn" title="Bezárás">&times;</span>
+  <img id="modalImg" src="" alt="Nagyított kép" />
+</div>
+
+<script>
+  function scrollPage(direction) {
+    const book = document.getElementById('book');
+    const pageWidth = window.innerWidth;
+    book.scrollBy({ left: pageWidth * direction, behavior: 'smooth' });
+  }
+  
+  // Open modal when image clicked
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const modal = document.getElementById('imgModal');
+      const modalImg = document.getElementById('modalImg');
+      modal.style.display = 'flex';
+      modalImg.src = this.src;
+      modalImg.alt = this.alt || 'Nagyított kép';
+    });
+  });
+
+  // Close modal when clicking outside image or on close button
+  function closeModal(e) {
+    if (
+      e.target.id === 'imgModal' ||
+      e.target.classList.contains('closeBtn')
+    ) {
+      const modal = document.getElementById('imgModal');
+      modal.style.display = 'none';
+      document.getElementById('modalImg').src = '';
+    }
+  }
+
+  // Close modal on ESC key
+  window.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      const modal = document.getElementById('imgModal');
+      modal.style.display = 'none';
+      document.getElementById('modalImg').src = '';
+    }
+  });
+</script>
+
+</body>
+</html>

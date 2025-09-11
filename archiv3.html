@@ -1,0 +1,261 @@
+<!DOCTYPE html> 
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <title>📰 Kékhegy Hírlap – Urbanmove 8 Edition</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: #faf7f1;
+      overflow: hidden;
+    }
+
+    .book {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: row;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+    }
+
+    .page {
+      flex: none;
+      width: 100vw;
+      height: 100vh;
+      padding: 40px;
+      box-sizing: border-box;
+      scroll-snap-align: start;
+      border-left: 3px double #004080;
+      border-right: 3px double #004080;
+      background: #fffef9;
+      box-shadow: inset 0 0 8px rgba(0,0,0,0.1);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      text-align: center;
+      border-bottom: 3px double #000;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    h1, h2 {
+      color: #002244;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #0078d7;
+      padding-bottom: 5px;
+    }
+
+    h3 {
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+
+    .author {
+      font-style: italic;
+      color: #555;
+      font-size: 0.9em;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #111;
+      line-height: 1.5;
+    }
+
+    footer {
+      margin-top: auto;
+      font-size: 0.9em;
+      color: #888;
+      text-align: center;
+      user-select: none;
+    }
+
+    .nav {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .nav button {
+      background: #0078d7;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      margin: 0 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav button:hover {
+      background: #005fa3;
+    }
+
+    /* Image zoom on hover */
+    img {
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Modal styles for clicked image */
+    #imgModal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.8);
+      align-items: center;
+      justify-content: center;
+    }
+    #imgModal img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 0 20px #000;
+    }
+    #imgModal .closeBtn {
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size: 2.5rem;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="book" id="book">
+
+  <!-- Page 1 -->
+  <div class="page">
+    <header>
+      <h1>📰 KÉKHEGY HÍRLAP</h1>
+      <p>2025. július 9. • Szerda</p>
+      <p>Következő kiadás: holnap 10:00</p>
+    </header>
+
+    <h2>🌬️ Szélriadó enyhült, de továbbra is figyelmeztetés érvényben</h2>
+    <p class="author">Írta: Tóth Anna 👱‍♀️</p>
+    <p>
+      Az Országos Meteorológiai Szolgálat ma reggel enyhítette a szélriadót, azonban továbbra is él a figyelmeztetés Kékhegy és környékén, hiszen a szélsebesség még mindig elérheti az 50-60 km/h-t. A lakosságot arra kérik, hogy továbbra is legyenek óvatosak, főleg a közlekedésben és a szabadtéri tevékenységek során.
+    </p>
+    <p>
+      A szakemberek szerint a szél holnapra várhatóan teljesen lecsillapodik, de az esti órákban még előfordulhatnak szélviharok főként az Alföld keleti részén.
+    </p>
+    <img src="https://met.hu/img/warning/wbxX/20250709_0900/wbta20250709_0900+ts.png" alt="Szélriadó térkép" height="auto" width="500" />
+    <p>Forrás: <a href="https://met.hu">OMSZ (met.hu)</a></p>
+
+    <h3>🚌 TTBus 9-es és 11-es járatok részben újraindulnak</h3>
+    <p class="author">Írta: Szabó László 👨 (TTBus Kft.)</p>
+    <p>
+      A TTBus Kft. tájékoztatja az utazóközönséget, hogy a 9-es és 11-es buszjáratok ma reggeltől részlegesen újra közlekednek Kékhegy térségében. Ugyanakkor a 11-es járat továbbra is csak korlátozott menetrend szerint, elsősorban a délelőtti és kora délutáni órákban üzemel.
+    </p>
+    <p>
+      A társaság arra kéri az utasokat, hogy indulás előtt mindig tájékozódjanak a hivatalos menetrendről, és figyeljenek a további időjárási változásokra.
+    </p>
+
+    <img src="https://files.catbox.moe/kz83nc.png" alt="TTBus busz" height="auto" width="500" />
+
+    <footer>1. oldal / Időjárás és Közlekedés – Buszjáratok</footer>
+  </div>
+
+  <!-- Page 2 -->
+  <div class="page">
+
+    <h2>🚆 Kékhegy Vasútvonal ismét üzemel, de fennakadások lehetnek</h2>
+    <p class="author">Írta: Józsi bácsi 🧓 (Kékhegy Vasút)</p>
+    <p>
+      Kedves utasok, a Kékhegy Vasútvonal 2025. július 9-én reggel újraindította a vonatközlekedést, miután a szélvihart követően megtisztították és ellenőrizték a pályát és a vonatokat.
+    </p>
+    <p>
+      Ugyanakkor előfordulhatnak késések és menetrendbeli változások, ezért kérjük, hogy indulás előtt ellenőrizzék a vasúti információkat. A személyzet mindent megtesz a zökkenőmentes közlekedés érdekében.
+    </p>
+    <p>
+      Köszönjük türelmüket és megértésüket!
+    </p>
+
+    <footer>2. oldal / Közlekedés – Vasúti információ</footer>
+  </div>
+
+</div>
+
+<div class="nav">
+  <button onclick="scrollPage(-1)">⬅ Előző oldal</button>
+  <button onclick="scrollPage(1)">Következő oldal ➡</button>
+</div>
+
+<!-- Modal for image zoom -->
+<div id="imgModal" onclick="closeModal(event)">
+  <span class="closeBtn" title="Bezárás">&times;</span>
+  <img id="modalImg" src="" alt="Nagyított kép" />
+</div>
+
+<script>
+  function scrollPage(direction) {
+    const book = document.getElementById('book');
+    const pageWidth = window.innerWidth;
+    book.scrollBy({ left: pageWidth * direction, behavior: 'smooth' });
+  }
+
+  // Open modal when image clicked
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const modal = document.getElementById('imgModal');
+      const modalImg = document.getElementById('modalImg');
+      modal.style.display = 'flex';
+      modalImg.src = this.src;
+      modalImg.alt = this.alt || 'Nagyított kép';
+    });
+  });
+
+  // Close modal when clicking outside image or on close button
+  function closeModal(e) {
+    if (
+      e.target.id === 'imgModal' ||
+      e.target.classList.contains('closeBtn')
+    ) {
+      const modal = document.getElementById('imgModal');
+      modal.style.display = 'none';
+      document.getElementById('modalImg').src = '';
+    }
+  }
+
+  // Close modal on ESC key
+  window.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      const modal = document.getElementById('imgModal');
+      modal.style.display = 'none';
+      document.getElementById('modalImg').src = '';
+    }
+  });
+</script>
+
+</body>
+</html>

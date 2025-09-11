@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <title>📰 Kékhegy Hírlap – 2025. Augusztus 4.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: #faf7f1;
+      overflow: hidden;
+    }
+
+    .book {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: row;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+    }
+
+    .page {
+      flex: none;
+      width: 100vw;
+      height: 100vh;
+      padding: 40px;
+      box-sizing: border-box;
+      scroll-snap-align: start;
+      border-left: 3px double #004080;
+      border-right: 3px double #004080;
+      background: #fffef9;
+      box-shadow: inset 0 0 8px rgba(0,0,0,0.1);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      text-align: center;
+      border-bottom: 3px double #000;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    h1, h2 {
+      color: #002244;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #0078d7;
+      padding-bottom: 5px;
+    }
+
+    h3 {
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+
+    .author {
+      font-style: italic;
+      color: #555;
+      font-size: 0.9em;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #111;
+      line-height: 1.5;
+    }
+
+    footer {
+      margin-top: auto;
+      font-size: 0.9em;
+      color: #888;
+      text-align: center;
+      user-select: none;
+    }
+
+    .nav {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .nav button {
+      background: #0078d7;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      margin: 0 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav button:hover {
+      background: #005fa3;
+    }
+
+    img {
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    img:hover {
+      transform: scale(1.1);
+    }
+
+    #imgModal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.8);
+      align-items: center;
+      justify-content: center;
+    }
+    #imgModal img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 0 20px #000;
+    }
+    #imgModal .closeBtn {
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size: 2.5rem;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding: 20px;
+      }
+    }
+    
+body {
+  cursor: url('https://files.catbox.moe/jcefpe.cur'), auto; /* jcefpe.cur az alapértelmezet */
+}
+
+.nav button {
+  cursor: url('https://files.catbox.moe/ajx6ik.cur'), pointer;
+}
+
+.nav button:hover {
+  cursor: url('https://files.catbox.moe/ajx6ik.cur'), pointer;
+}
+
+img:hover {
+  cursor: url('https://files.catbox.moe/ajx6ik.cur'), pointer;
+}
+
+/* Scrollbar for whole page */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ffffff; /* white track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #003366; /* dark blue, matches Kékhegyi Hírlap's h1 */
+  border-radius: 8px;
+  border: 2px solid #ffffff; /* white border to separate thumb from track */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #004080; /* slightly lighter blue on hover */
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #003366 #ffffff;
+}
+
+  </style>
+</head>
+<body>
+
+<div class="book" id="book">
+
+<!-- Page 1 – OMSZ Időjárás -->
+<div class="page">
+  <header>
+    <h1>📰 KÉKHEGY HÍRLAP</h1>
+    <p>2025. augusztus 4. • Hétfő – Huszonegyedik kiadás</p>
+    <p>Következő kiadás: Holnap 10:00 vagy később (Kivéve szombaton)</p>
+    <a href="ujsagarchiv.html">Érdekelnek a régi kiadások?</a>
+  </header>
+
+  <h2>⛈️ OMSZ: Sárga zivatar figyelmeztetés Budapest térségére – Vigyázz, zivatar közelít!</h2>
+<p class="author">Írta: Tóth Anna 👱‍♀️ (Friss OMSZ napi jelentés alapján – 2025. augusztus 4., hétfő)</p>
+
+<p>
+  Az Országos Meteorológiai Szolgálat <strong>sárga figyelmeztetést</strong> adott ki Közép‑Magyarországra a heves zivatarok miatt, érvényes <strong>augusztus 4-én 01:00–24:59 CEST</strong> között. Várható villámlás, szélerősödés és akár jégeső is – különösen az esti órákban.
+</p>
+
+<p>
+  <strong>Budapesten és Kékhegyen</strong> jelenleg <strong>felhős</strong>, a hőmérséklet <strong>18 °C körül</strong> alakul, ami napközben <strong>25–27 °C-ig</strong> emelkedhet, különösen délután.  
+  A nap folyamán a kora délelőtt bő eséllyel felhős és záporos lehet, aztán délutánra többnyire napos idő várható.
+</p>
+
+<p>
+  Az OMSZ arra figyelmeztet, hogy zivatarfelhők közelednek, <strong>kerüld a magaslatokat és fedetlen tereket</strong>, maradj fedett helyen villámlás idején. Erős szél és jégverés is előfordulhat – <strong>érdemes esernyőt vinni</strong> és fokozottan gondolni a biztonságra.
+</p>
+
+  <h3>Mit vegyek föl ma?</h3>
+  <ul>
+    <li><strong>Nyári ruha vagy könnyű ing + rövid gatyát</strong> – kényelmes és légáteresztő.</li>
+    <li><strong>Esernyőt vagy esőkabátot</strong> – muszáj, ha nem akarsz vizes lenni.</li>
+    <li><strong>Baseball sapka vagy kalap</strong> – hogy megvédd a fejed a záporoktól.</li>
+    <li><strong>Napszemüveg</strong> – amikor kisüt a nap, full stílusos védelem.</li>
+    <li><strong>Naptej (legalább 30‑as faktor)</strong> – a bőröd hálás lesz érte.</li>
+    <li><strong>Rövid ujjú poló vagy vékony ing</strong> – amit esernyővel egészítesz ki...</li>
+  </ul>
+
+  <p>
+    Ma Budapesten és Kékhegy térségben <strong>helyenként zivatarok, villámlás és élénk várhatók</strong>, így nem árt elővigyázatosnak lenni...
+    Bár a hőmérséklet továbbra is kellemesen nyári, <strong>ajánlott esernyőt vinni, és lehetőség szerint fedett helyet keresni a délutáni órákban.</strong>
+  </p>
+
+  <img src="https://www.idokep.hu/terkep/hu600/idokep2.webp" alt="Időjárási térkép" width="600" height="auto" onerror="this.onerror=null; this.src='https://urbanmove8.neocities.org/images/errorimage.png';" />
+
+  <p>Forrás(ok): <a href="https://met.hu" target="_blank">HungaroMet (OMSZ)</a>, <a href="https://idokep.hu" target="_blank">Időkép.hu</a></p>
+
+  <footer>1. oldal / Időjárás – Sárga riasztás Közép-Magyarországon</footer>
+</div>
+
+<!-- Page 2 – Felsőhegyes megszűnése -->
+<div class="page">
+  <h2>🚨 Felsőhegyes Urbanmove megszűnt a Várkertes és Szentpalota projektek miatt</h2>
+  <p class="author">Írta: Kosztolányi Nándor 🧑 (Helyi tudósító)</p>
+
+   <p>
+    Megdöbbentő hír rázta meg a játékosokat: a <strong>Felsőhegyes Urbanmove</strong> című Roblox-játék 2025 augusztusára <strong>csendben leállt</strong>, hivatalos közlemény vagy magyarázat nélkül. A játék Roblox oldaláról <strong>eltűntek a frissítési dátumok, a leírások, és a játék már nem kap további fejlesztést</strong>.
+  </p>
+
+  <p>
+    A rajongók azóta is találgatják, mi történt. Sokan úgy vélik, a fejlesztők <strong>szándékosan hanyagolták el</strong> a projektet, hogy teljes kapacitással a <strong>Várkertes</strong> és a <strong>Szentpalota Urbanmove</strong> térségekre fókuszáljanak, melyek az elmúlt hónapokban rengeteg újítást és látványos dizájnt kaptak.
+  </p>
+
+  <p>
+    Bár hivatalos közlemény nem született, a közösség egy része már el is költözött a <strong>Várkertes Urbanmove</strong> és <strong>Szentpalota Urbanmove</strong> pályákra, ahol aktívan zajlik a fejlesztés és már <strong>eventek</strong> is megjelentek.
+  </p>
+  
+  <img src="https://files.catbox.moe/2wr4dk.jpeg" alt="Felsőhegyes Robloxon" width="300" height="auto" onerror="this.onerror=null; this.src='https://urbanmove8.neocities.org/images/errorimage.png';" />
+
+  <footer>2. oldal / Roblox Játékvilág – Felsőhegyes megszűnése</footer>
+</div>
+
+  <!-- Page 3 – TTBus Kft. friss hírek -->
+<div class="page">
+  <h2>🚌 TTBus Kft.: Újraindult a 9-es és 11-es busz, valamint a Kékhegyi Vasút</h2>
+  <p class="author">Írta: Blaha Júlia 👩 (TTBus Kft.)</p>
+
+  <p>
+    Jó hír a közlekedőknek: a TTBus Kft. bejelentette, hogy a <strong>heves zivatarok és sárga figyelmeztetés ellenére</strong> a <strong>9-es és 11-es autóbuszjárat</strong>,
+    valamint a <strong>Kékhegyi Vasút</strong> továbbra is <strong>közlekedik a megszokott menetrend szerint</strong>.
+  </p>
+  <p>
+    Az elmúlt időszak időjárási nehézségei miatt ideiglenesen szüneteltették ezeket a szolgáltatásokat, azonban a javítási és ellenőrzési munkák sikeres lezárását követően
+    ma reggel 6:00 órától minden érintett vonal újra közlekedik.
+  </p>
+  <p>
+    A TTBus Kft. azonban felhívja a figyelmet, hogy a <strong>zivataros időjárás miatt késések és esetleges útvonalváltozások előfordulhatnak</strong>. Kérik az utasokat,
+    hogy indulás előtt mindenképp ellenőrizzék a <a href="https://urbanmove8.neocities.org/kekhegy" target="_blank">hivatalos weboldalt</a> a legfrissebb információkért.
+  </p>
+  <p>
+    A vállalat továbbra is elsődleges célként kezeli az utasok biztonságát és a megbízható közlekedést, ezért kérik, hogy a viharszezonban legyenek türelmesek és körültekintőek.
+  </p>
+
+  <footer>3. oldal / TTBus Kft. frissítés – Újraindultak a szolgáltatások, de figyelj a zivatarokra!</footer>
+</div>
+
+  <!-- Page 4 – Közlekedés és biztonság -->
+<div class="page">
+  <h2>🚨 Egy tízéves fiút hagytak magára a barcelonai reptéren</h2>
+  <p class="author">Írta: Gábor 👨 (TTBus Kft. dolgozó)</p>
+
+  <p>
+    Egy elképesztő eset történt 2025. július 30-án a barcelonai El Prat nemzetközi repülőtéren, ahol egy tízéves fiút egyedül hagytak a szülei az útlevélproblémája miatt. 
+    A család az utazás előtti pillanatokban vette észre, hogy a gyerek útlevele lejárt, ezért úgy döntöttek, hogy őt a reptéren hagyják, míg ők elindulnak nyaralni a kisebbik fiukkal.
+  </p>
+
+  <p>
+    A reptéri dolgozó, Lilian, aki a helyszínen volt, elmondta, hogy a szülők megkérték egy rokonukat, hogy később érkezzen a gyerekért. Azonban miután a személyzet egyedül találta a fiút, értesítették a repülőgép kapitányát, aki a gépen hangosbemondón figyelmeztette az utasokat.
+  </p>
+
+  <p>
+    Senki nem jelentkezett a felszólításra, így a családot még a felszállás előtt leszállították a gépről. Lilian a TikTok-videóban azt is kiemelte, hogy „már sok mindent láttam, de ez teljesen szürreális volt”, és felháborítónak tartja, hogy a szülők nyugodtan felszálltak a gépre, miközben ott hagyták a gyereket.
+  </p>
+
+  <p>Forrás(ok): <a href="https://24.hu" target="_blank">24.hu</a></p>
+
+  <footer>4. oldal / Közlekedés – Rendkívüli eset a barcelonai reptéren</footer>
+</div>
+  
+  <!-- Page 5 – Párna és matrac ápolás – Hogyan maradj friss és tiszta az alvás közben? -->
+<div class="page">
+  <h2>🛏️ Miért lesznek foltosak a párnák és hogyan előzheted meg?</h2>
+  <p class="author">Írta: Szabó Noémi 👩‍💻 (JYSK - Ház és Otthon szakértő)</p>
+
+  <p>
+    Ha valaha is cseréltél ágyneműt, biztos feltűnt már, hogy a párnák idővel sárgás foltokat kapnak, amik elég kellemetlen látványt nyújtanak.
+    Ezek a foltok tulajdonképpen nem mások, mint az alvás közben keletkező természetes anyagok lerakódásai.
+  </p>
+
+  <p>
+    Mindenki izzad álmában, ráadásul arcunkról és hajunkról zsíros anyagok, valamint különféle kozmetikumok kerülnek a párnára.
+    Ezek az anyagok folyamatosan szívódnak be a huzat alá, és hosszú távon elszíneződést okoznak, amit sajnos nehéz eltávolítani.
+  </p>
+
+  <p>
+    Az ideális higiénia érdekében legalább évente kétszer ajánlott a párnákat kimosni az őket kísérő használati utasítások szerint.
+    Ezzel megakadályozhatjuk, hogy a foltok túlságosan beszennyezzék a párnát, és meghosszabbíthatjuk az élettartamát.
+    Ha azonban több évig elhanyagoljuk a mosást, a foltok makacsakká válnak, és ekkor már jobb, ha új párnára váltunk.
+  </p>
+
+  <p>
+    Extra védelemként érdemes párnavédő huzatot használni, amelyek között vízhatlan típusok is elérhetőek.
+    Ezek megakadályozzák a folyadékok és zsírok közvetlen érintkezését a párnával, ráadásul könnyen tisztíthatók együtt az ágyneművel.
+    Érdemes továbbá odafigyelni arra is, hogy ne feküdjünk le vizes hajjal vagy olajos hajápolókkal, mert ezek is gyorsíthatják a foltosodást.
+  </p>
+
+  <p>
+    A matracokkal kapcsolatban is hasonló a helyzet: az izzadság és egyéb szennyeződések idővel beivódnak a felületbe.
+    Ha matracod több mint hét éves és foltos, higiéniai szempontból megfontolandó a csere, különösen, ha az anyagi lehetőségek megengedik.
+  </p>
+
+  <p>Forrás(ok): <a href="https://telex.hu" target="_blank">Telex.hu</a></p>
+
+  <footer>5. oldal / Ház és Otthon – Párna és matrac ápolás</footer>
+</div>
+  
+<!-- Page 6 – Ausztrália betiltja a YouTube-ot a 16 éven aluliak számára -->
+<div class="page">
+  <h2>📵 Ausztrália betiltja a YouTube használatát 16 év alattiak számára</h2>
+  <p class="author">Írta: Radakovic Mijat 👨‍💻 (Tech-Tudomány tudósítás)</p>
+
+  <p>
+    2025. július 30-án Ausztrália bejelentette, hogy a jövőben nem engedélyezik a 16 éven aluliak számára YouTube-fiók létrehozását, hogy megvédjék a fiatalokat a „ragadozó algoritmusoktól”. 
+    Anika Wells kommunikációs miniszter hangsúlyozta, hogy a szabályozás célja a gyermekek védelme az online veszélyektől.
+  </p>
+
+  <p>
+    Anthony Albanese miniszterelnök kifejtette, hogy az intézkedés támogatja a családokat és szülőket az online biztonság terén. Az ausztrál parlament 2024 novemberében fogadta el azt a törvényt, amely tiltja a 16 év alattiak hozzáférését több közösségi platformhoz, mint például a TikTok, X, Facebook és Instagram.
+  </p>
+
+  <p>
+    Bár a YouTube-ot eddig széles körben használták oktatási célokra, a kormány most változtatott álláspontján, és a platformot is érinti a korlátozás. A YouTube szóvivője azt közölte, hogy a platform nem közösségi hálózat, hanem videómegosztó szolgáltatás, amely ingyenesen kínál minőségi tartalmakat.
+  </p>
+
+  <p>
+    Szakértők azonban arra figyelmeztetnek, hogy a bejelentett intézkedések részletei homályosak, így alkalmazásuk kérdéses. Az érintett platformok akár 28 millió eurós bírságra is számíthatnak, ha nem működnek együtt a szabályozással.
+  </p>
+  
+  <p>Forrás(ok): <a href="https://index.hu">Index.hu</a></p>
+
+  <footer>6. oldal / Tech-Tudomány – Ausztrál internetes szabályozás</footer>
+</div>
+
+<!-- Page 7 – Súlyos baleset nélkül ért véget egy borulás a 84-es főúton -->
+<div class="page">
+  <h2>🚗 Súlyos baleset nélkül ért véget egy látványos borulás a 84-es főúton Kissomlyó közelében</h2>
+  <p class="author">Írta: Farkas Gábor 👨‍💼 (Helyszíni tudósítás)</p>
+
+  <p>
+    Súlyos baleset nélkül ért véget egy látványos borulás a 84-es főúton Kissomlyó közelében, ahol pénteken egy személyautó
+    eddig ismeretlen okból áttért a szemközti sávba, majd egy másik jármű érintését követően az út menti árokba hajtott.
+    A kocsi utasai saját erejükből szálltak ki, senki nem szenvedett komolyabb sérülést.
+  </p>
+
+  <p>
+    A helyszínre tűzoltók és mentők is érkeztek, a baleset körülményeit a rendőrség vizsgálja.
+  </p>
+
+  <p>
+    Szerencsés kimenetelű, azonban ijesztő baleset történt a 84-es főúton Kissomlyó térségében, a 44-es kilométernél pénteken –
+    számolt be róla a Budapesti Autósok. „Egy olvasónk fedélzeti kamerája rögzítette, ahogy az előtte haladó jármű egyik pillanatról a másikra
+    áttér a szemközti sávba, ahol érintőlegesen nekiütközött egy másik autónak, majd az út menti árokba hajtott.
+    A sofőr elvesztette uralmát a jármű felett, amely körülbelül 200 méteren át haladt az árokban, mielőtt a tetejére borulva megállt” – írta a portál.
+  </p>
+
+  <p>
+    "Épp a 84-es főúton haladtunk, amikor láttuk, hogy előttünk az egyik autó – nem tudni miért – hirtelen áttért a szemközti sávba.
+    Ott eltalálta az előtte haladó jármű visszapillantó tükrét, majd lesodródott az útról, és legalább 200 métert ment az árokban,
+    mielőtt a tetejére borulva megállt. Többen azonnal megálltak segíteni, mi is odamentünk. Mire odaértünk,
+    a bent ülők már mind kiszálltak, láthatóan nem volt komoly bajuk, senki nem panaszkodott fájdalomra.
+    Elég ijesztő volt látni, ahogy az autó az árokban végighalad és végül a tetején landol,
+    de szerencsére úgy tűnik, senki nem sérült meg komolyan"<br>
+    – fogalmazott a felvétel beküldője.</p>
+
+  <p>
+    A katasztrófavédelem közlése szerint két személyautó érintőlegesen ütközött,
+    az egyik jármű a tetejére borulva állt meg az árokban.
+    A sárvári hivatásos, valamint a jánosházi és egyházashetyei önkéntes tűzoltók vonultak a helyszínre,
+    akik áramtalanították a járművet. Mentők is érkeztek, de súlyosabb sérülés nem történt.
+    A körülményeket a rendőrség vizsgálja.
+  </p>
+  
+  <iframe width="727" height="439" src="https://www.youtube.com/embed/MOywHuNfC_0" title="Több száz méteren át csúszott az árokban, majd a tetejére borult" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+  <p>Forrás(ok): <a href="https://budapestiutosok.hu" target="_blank">Budapesti Autósok</a> és <a href="https://index.hu" target="_blank">Index.hu</a></p>
+
+  <footer>7. oldal / Helyi hírek – Baleset a 84-es főúton Kissomlyó közelében</footer>
+</div>
+
+
+<!-- Page 8 – Nyírmeggyes frissítés -->
+<div class="page">
+  <h2>🚍 Nyírmeggyes frissítés: Új Volvo 7700 Facelift és járatbővítés</h2>
+  <p class="author">Írta: Zsófi 👩‍🦰 (TTBus Kft. dolgozó)</p>
+
+  <p>
+    2025. július 23-án érkezett a legújabb update a Nyírmeggyes Urbanmove-hoz, amelyben bemutatták az új <strong>Volvo 7700 Facelift</strong> autóbuszt, amely immár a 3-as járaton közlekedik.
+  </p>
+
+  <p>
+    A Volvo 7700A facelift modell most <strong>30%-os kedvezménnyel</strong> érhető el a gamepass-on keresztül, így a játékosok olcsóbban juthatnak hozzá az új buszhoz. Ezen kívül kisebb változtatások történtek a térképen, illetve több hibajavítás is bekerült a frissítésbe.
+  </p>
+
+  <p>
+    A fejlesztőcsapat köszöni mindenkinek a gamepass vásárlásokat és támogatást, és kíván minden játékosnak jó szórakozást az új funkciókkal!
+  </p>
+
+  <footer>8. oldal / Urbanmove Játékfrissítés – Nyírmeggyes update 2025.07.23</footer>
+</div>
+
+<!-- Page 9 – TT285 figyelmeztetése: Robuxos csaló bukott le -->
+<div class="page">
+  <h2>⚠️ TT285 figyelmeztetése: Ne dőlj be a Robuxos átverésnek!</h2>
+  <p class="author">Írta: Varga Áron 👨‍💼 (Közösségi hírszerkesztő)</p>
+
+  <p>
+    2025. július 16-án, szerdán <strong>TT285</strong>, a népszerű közösségi admin, hivatalos figyelmeztetést tett közzé a <strong>Kékhegyi Discord-felhasználók</strong> számára egy újfajta <strong>Robuxos átveréssel kapcsolatban</strong>.
+  </p>
+
+  <p>
+    A figyelmeztetés szerint egy bizonyos <strong>zsombor0083</strong> nevű felhasználó különböző szervereken próbálja átverni a tagokat egy hamis <strong>Robux piramisjátékkal</strong>, és privát üzenetekben próbálja rávenni őket, hogy csatlakozzanak az általa ajánlott szerverhez.
+  </p>
+
+  <blockquote style="background-color: #ffe5e5; padding: 12px; border-left: 5px solid red;">
+    <strong>TT285 üzenete:</strong><br>
+    „Figyelem! Ez a 'csodás úriember' valószínűleg rátok for írni, és valami Robuxos piramisjátékba akar titeket belehúzni, ami valószínűleg átverés!<br>
+    Ne lépjetek be arra a szerverre!”
+  </blockquote>
+
+  <p>
+    A mellékelt képernyőmentésen egyértelműen látszik a <strong>zsombor0083</strong> felhasználó neve, akit többen is jelentettek a <strong>Kékhegyi közösségi szervereken</strong>. Az adminok már megkezdték az illető eltávolítását és a szerver védelmének erősítését.
+  </p>
+
+  <p>
+    <strong>Fontos tanács:</strong> soha ne kattints ismeretlen Discord-linkekre, különösen akkor, ha Robuxot, nyereményt vagy gyors meggazdagodást ígérnek. Ezek szinte mindig csalások!
+  </p>
+
+  <p>
+    A TT285 admin nyomatékosan kér minden felhasználót, hogy <strong>jelentsék a gyanús tevékenységet</strong>, és ne hagyják figyelmen kívül az ilyen figyelmeztetéseket. A közösség biztonsága mindannyiunk felelőssége.
+  </p>
+
+  <footer>9. oldal / Roblox Közösségi védelem – Robuxos scam figyelmeztetés</footer>
+</div>
+
+<!-- Page 10 – Aggresszív közlekedési incidens és dulakodás egy magyarországi főúton -->
+<div class="page">
+  <h2>🚨😡 Agresszív sofőr és furgonvezető dulakodott egy magyarországi főúton</h2>
+  <p class="author">Írta: Kovács László 🧑‍💼 (Helyszíni tudósító)</p>
+
+  <p>
+    Egy olvasói videó rögzítette azt az agresszív közlekedési incidenst, amely kis híján balesettel indult, majd fizikai összetűzéssel végződött egy magyarországi főúton. 
+    A felvételen látható sofőr előbb szabálytalan és veszélyes manővereket hajtott végre, majd megállította a forgalmat, kiszállt, és dulakodásba keveredett egy furgon vezetőjével.
+  </p>
+
+  <p>
+    A Budapesti Autósok szombaton közzétett olvasói videója szerint a közúton zajlott le egy több szabályszegést is megvalósító, agresszív közlekedési incidens, 
+    amely kis híján balesettel kezdődött, majd fizikai összetűzésbe torkollott. A videó szerint a történet egy kanyarodással indul, ahol az agresszívan vezető sofőr 
+    már első manőverével majdnem ütközést okozott a kamerás autó mögé történő behajtásnál.
+  </p>
+
+  <p>
+    Az autós ezután nagy tempóval utolérte a felvételt készítő járművet, és többször is veszélyes előzésbe kezdett. A felvétel alapján a sofőr célja egy előrébb haladó furgon 
+    utolérése volt, ami rövidesen sikerült is neki. Ekkor az autójával hirtelen a furgon elé vágott, és teljesen megállította az előtte haladó forgalmat.
+  </p>
+
+  <p>
+    A férfi ezután kiszállt a járművéből, odament a furgonhoz, ahol szóváltás, majd fizikai dulakodás történt közte és a másik jármű vezetője között. 
+    A dulakodás után a támadó visszaszállt az autójába és elhajtott.
+  </p>
+
+  <p>
+    „A videón látottak alapján több közlekedési szabályt is megszegtek, de ami ennél is súlyosabb: olyan viselkedésnek lehetünk tanúi, amelynek semmi keresnivalója a közutakon. 
+    A közlekedés nem lehet az önbíráskodás terepe, és semmilyen sérelem nem jogosít fel arra, hogy másokat veszélybe sodorjon valaki” – írta a portál.
+  </p>
+  
+  <iframe width="727" height="439" src="https://www.youtube.com/embed/fQJ67cYFkkw" title="MINT EGY BOSSZÚFILMBEN: üldözés, forgalomfeltartás, majd dulakodás a főút közepén" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+  <p>Forrás(ok): <a href="https://budapestiutosok.hu" target="_blank">Budapesti Autósok</a> és <a href="https://index.hu" target="_blank">Index.hu</a></p>
+
+  <footer>10. oldal / Közlekedés – Aggresszív sofőr és dulakodás egy magyarországi főúton</footer>
+</div>
+
+<!-- Page 11 – Rendőri gyorsaság megakadályozta a rendőrautó ellopását Zuglóban -->
+<div class="page">
+  <h2>🚓 Strandpapucsos férfi próbált meg rendőrautót lopni Zuglóban, de lebuktak</h2>
+  <p class="author">Írta: Horváth Éva 👩‍💼 (Helyszíni riport)</p>
+
+  <p>
+    2025. július 29-én, kedden Zuglóban egy grúz férfi strandpapucsban próbálta ellopni egy nyomozó szolgálati autóját, azonban a gyors reagálásnak köszönhetően lebukott, majd a helyszínre érkező rendőrök menekülés közben elfogták.
+  </p>
+
+  <p>
+    A férfi egy jelblokkoló készüléket használt, hogy megakadályozza az autó bezárását, melyet a nyomozó is észrevett, amikor nem tudta lezárni a kocsit. Ekkor otthagyta járművét, és erősítést kért a helyszínre.
+  </p>
+
+  <p>
+    A grúz férfi menekülni próbált, de a kiérkező járőrök hamar elfogták és előállították. A férfi táskájában a rendőrök nagy mennyiségű készpénzt és a jelblokkolót is megtalálták.
+  </p>
+
+  <p>
+    Az RTL információi szerint a férfi tagadta a bűncselekményt és nem tett vallomást az ügyben.
+  </p>
+
+  <p>Forrás(ok): <a href="https://rtl.hu" target="_blank">RTL Hírek</a> és <a href="https://444.hu" target="_blank">444.hu</a></p>
+
+  <footer>11. oldal / Bűncselekmény - Rendőrségi gyors beavatkozás Zuglóban</footer>
+</div>
+
+<div class="nav">
+  <button onclick="scrollPage(-1)">⬅ Előző oldal</button>
+  <button onclick="scrollPage(1)">Következő oldal ➡</button>
+</div>
+
+<!-- Modal for image zoom -->
+<div id="imgModal" onclick="closeModal(event)">
+  <span class="closeBtn" title="Bezárás">&times;</span>
+  <img id="modalImg" src="" alt="Nagyított kép" />
+</div>
+
+<script>
+  function scrollPage(direction) {
+    const book = document.getElementById('book');
+    const pageWidth = window.innerWidth;
+    book.scrollBy({ left: pageWidth * direction, behavior: 'smooth' });
+  }
+  
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const modal = document.getElementById('imgModal');
+      const modalImg = document.getElementById('modalImg');
+      modal.style.display = 'flex';
+      modalImg.src = this.src;
+      modalImg.alt = this.alt || 'Nagyított kép';
+    });
+  });
+
+  function closeModal(e) {
+    if (
+      e.target.id === 'imgModal' ||
+      e.target.classList.contains('closeBtn')
+    ) {
+      const modal = document.getElementById('imgModal');
+      modal.style.display = 'none';
+      document.getElementById('modalImg').src = '';
+    }
+  }
+
+  window.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      const modal = document.getElementById('imgModal');
+      modal.style.display = 'none';
+      document.getElementById('modalImg').src = '';
+    }
+  });
+</script>
+</body>
+</html>

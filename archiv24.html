@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+ <html lang="hu">
+ <head>
+  <meta charset="UTF-8" />
+  <title>📰 Kékhegy Hírlap – 2025. Augusztus 21.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: #faf7f1;
+      overflow: hidden;
+    }
+
+    .book {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: row;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+    }
+
+    .page {
+      flex: none;
+      width: 100vw;
+      height: 100vh;
+      padding: 40px;
+      box-sizing: border-box;
+      scroll-snap-align: start;
+      border-left: 3px double #004080;
+      border-right: 3px double #004080;
+      background: #fffef9;
+      box-shadow: inset 0 0 8px rgba(0,0,0,0.1);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      text-align: center;
+      border-bottom: 3px double #000;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    h1, h2 {
+      color: #002244;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #0078d7;
+      padding-bottom: 5px;
+    }
+
+    h3 {
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+
+    .author {
+      font-style: italic;
+      color: #555;
+      font-size: 0.9em;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #111;
+      line-height: 1.5;
+    }
+
+    footer {
+      margin-top: auto;
+      font-size: 0.9em;
+      color: #888;
+      text-align: center;
+      user-select: none;
+    }
+
+    .nav {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .nav button {
+      background: #0078d7;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      margin: 0 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav button:hover {
+      background: #005fa3;
+    }
+
+    img {
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    img:hover {
+      transform: scale(1.1);
+    }
+
+    #imgModal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.8);
+      align-items: center;
+      justify-content: center;
+    }
+    #imgModal img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 0 20px #000;
+    }
+    #imgModal .closeBtn {
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size: 2.5rem;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+    }
+    
+    body {
+      cursor: url('https://files.catbox.moe/jcefpe.cur'), auto; /* jcefpe.cur az alapértelmezet */
+    }
+
+    .nav button {
+      cursor: url('https://files.catbox.moe/ajx6ik.cur'), pointer;
+    }
+
+    .nav button:hover {
+      cursor: url('https://files.catbox.moe/ajx6ik.cur'), pointer;
+    }
+
+    img:hover {
+      cursor: url('https://files.catbox.moe/ajx6ik.cur'), pointer;
+    }
+
+    /* Scrollbar for whole page */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #ffffff; /* white track */
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #003366; /* dark blue, matches Kékhegyi Hírlap's h1 */
+      border-radius: 8px;
+      border: 2px solid #ffffff; /* white border to separate thumb from track */
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: #004080; /* slightly lighter blue on hover */
+    }
+
+    /* Firefox scrollbar */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #003366 #ffffff;
+    }
+    
+    /* Crossword styles */
+    .crossword {
+      display: grid;
+      grid-template-columns: repeat(15, 2em);
+      grid-template-rows: repeat(15, 2em);
+      gap: 1px;
+      border: 1px solid black;
+      margin-top: 20px;
+      align-self: center;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    }
+    .clues {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+    }
+    .clues h3 {
+      border-bottom: none;
+    }
+    .cell {
+      width: 2em;
+      height: 2em;
+      background-color: #333;
+      position: relative;
+    }
+    .cell.white {
+      background-color: white;
+    }
+    .cell input {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      text-align: center;
+      font-size: 1.2em;
+      text-transform: uppercase;
+      border: 1px solid #ccc;
+      background-color: white;
+    }
+    .cell .number {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      font-size: 0.7em;
+      color: #555;
+    }
+    .crossword-nav {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .crossword-nav button {
+      background: #0078d7;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .crossword-nav button:hover {
+      background: #005fa3;
+    }
+    .crossword-nav button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  </style>
+ </head>
+ <body>
+
+ <div class="book" id="book">
+
+ <div class="page">
+  <header>
+    <h1>📰 KÉKHEGY HÍRLAP</h1>
+    <p>2025. augusztus 21. • Csütörtök – Huszonnegyedik kiadás</p>
+    <p>Következő kiadás: Holnap 10:00 vagy később (Kivéve pénteken és szombaton)</p>
+    <a href="ujsagarchiv.html">Érdekelnek a régi kiadások?</a>
+  </header>
+
+  <h2>⛈️ Viharos időjárás várható Budapesten és Kékhegyen!</h2>
+  <p class="author">Írta: Tóth Anna 👱‍♀️ (Friss HungaroMet napi jelentés alapján – 2025. augusztus 21., csütörtök)</p>
+  
+  <p>
+    Ma borongós, változékony időre kell készülni. A reggeli <strong>23 °C</strong>-os hőmérséklet napközben sem emelkedik sokkal, délutánra
+    <strong>24–25 °C</strong>-ra melegszik, de <strong>záporok és heves zivatarok</strong> várhatók, különösen a délutáni órákban.
+  </p>
+  
+  <p>
+    A HungaroMet (OMSZ) <strong>sárga riasztást</strong> adott ki Közép-Magyarországra zivatarok és kiadós eső miatt. 
+    A villámlás mellett hirtelen szélrohamok, helyenként jégeső és felhőszakadás is előfordulhat. 
+    Ajánlott a szabadtéri programok halasztása, valamint a közlekedésben a fokozott figyelem.
+  </p>
+  
+  <p>
+    A levegő párás, a hirtelen záporok pedig rövid idő alatt jelentős csapadékot hozhatnak, akár belvíz is kialakulhat. 
+    Holnap is hasonló, esős és zivataros időre kell számítani, így érdemes a hét második felében is esernyőt hordani.
+  </p>
+  
+  <h3>Mit vegyek föl ma?</h3>
+  <ul>
+    <li><strong>Vékony, légáteresztő ruházat</strong> – meleg és párás idő miatt ajánlott.</li>
+    <li><strong>Esernyő vagy vízhatlan kabát</strong> – délután és este elengedhetetlen.</li>
+    <li><strong>Vízálló lábbeli</strong> – a heves esőzések miatt.</li>
+    <li><strong>Napszemüveg</strong> – délelőtt még lehetnek napos időszakok.</li>
+  </ul>
+  
+  <img src="https://www.idokep.hu/terkep/hu600/idokep2.webp" alt="Időjárási térkép" width="600" height="auto" onerror="this.onerror=null; this.src='https://urbanmove8.neocities.org/images/errorimage.png';" />
+  
+  <p>Forrás(ok): <a href="https://met.hu" target="_blank">HungaroMet (OMSZ)</a>, <a href="https://idokep.hu" target="_blank">Időkép.hu</a></p>
+  
+  <footer>1. oldal / Időjárás – Viharos idő</footer>
+  </div>
+
+ <div class="page">
+  <h2>🚗 Vezetés közben figyelj az útra – könnyen megelőzhető baleset az M1-esen</h2>
+  <p class="author">Írta: Kosztolányi Nándor 🧑 (Totalcar.hu)</p>
+
+  <p>
+    Vezetés közben az útra figyelni egyszerű szabálynak hangzik, de sajnos sokan nem tartják be. Nemrég az 
+    <strong>MKIF</strong> számolt be egy olyan esetről, ahol egy figyelmetlen autós hibája miatt könnyen megelőzhető 
+    baleset történt az <strong>M1-es autópályán</strong>.
+  </p>
+
+  <p>
+    A videón látszik, hogy a sűrű forgalom éppen egy terelés mellett halad el. Egy autós azonban nem a vezetésre 
+    figyelt, így autóját a terelést jelző táblák közé kormányozta. Miután letarolt néhány táblát, megrémült, és 
+    hirtelen jobbra rántotta a kormányt. Az eredmény sajnos kiszámítható: baleset.
+  </p>
+
+  <p class="note">
+    Szerencsére senki sem sérült meg. Az <strong>MKIF</strong> felhívja a figyelmet: ha muszáj telefonálnod, ne legyen a kezedben a telefon! 
+    Kérd az utastársad segítségét, ha bármit elő kell venni. Ha egyedül vagy, állj meg egy pihenőben. Ha fáradt vagy, állj meg pihenni! 
+    A saját biztonságod és mások érdekében csak a vezetésre koncentrálj, tartsd a távolságot, és mindenki épségben érje el úti célját.
+  </p>
+
+  <footer>2. oldal / Totalcar.hu – Vezetés és biztonság az M1-esen</footer>
+</div>
+
+ <div class="page">
+  <h2>🚌 TTBus Kft.: Újraindult a 9-es és 11-es busz, valamint a Kékhegyi Vasút</h2>
+  <p class="author">Írta: Blaha Júlia 👩 (TTBus Kft.)</p>
+
+  <p>
+    Jó hír a közlekedőknek: a TTBus Kft. bejelentette, hogy a <strong>heves zivatarok és korábbi figyelmeztetések ellenére</strong> a <strong>9-es és 11-es autóbuszjárat</strong>,
+    valamint a <strong>Kékhegyi Vasút</strong> ismét <strong>megszokott menetrend szerint, késés nélkül közlekedik</strong>.
+  </p>
+
+  <p>
+    A korábbi időjárási problémák miatti leállás után a karbantartási és biztonsági ellenőrzések befejeződtek. A TTBus Kft. közlése szerint <strong>minden jármű üzemkész</strong>,
+    az infrastruktúra megfelelő állapotban van, így <strong>sem késésre, sem útvonalváltozásra nem kell számítani</strong>.
+  </p>
+
+  <p>
+    A vállalat ugyanakkor továbbra is kéri az utasokat, hogy esős időben legyenek elővigyázatosak, és használják az <a href="https://urbanmove8.neocities.org/kekhegy" target="_blank">hivatalos weboldalt</a> az aktuális menetrend és tájékoztatás ellenőrzéséhez.
+  </p>
+
+  <p>
+    A TTBus Kft. célja továbbra is a biztonságos, pontos és megbízható közlekedés biztosítása minden időjárási körülmények között.
+  </p>
+
+  <footer>3. oldal / TTBus Kft. frissítés – Minden vonal pontosan közlekedik</footer>
+ </div>
+
+ <!-- 3. OLDAL — VÁLTOZATLAN KÉRÉSRE --> 
+<div class="page">
+  <h2>🎬 South Park 27. évad: Randy Marsh, ChatGPT és a beszélő törlőkendő</h2>
+  <p class="author">Írta: Nagy Réka 👩‍🦳 (Index.hu)</p>
+
+  <p>
+    A South Park legújabb epizódjában Randy Marsh elveszíti az összes mexikói munkását, Törcsi ketaminnal kísérletezik, 
+    a ChatGPT ad tanácsokat, és végül a beszélő törlőkendő Donald Trump fürdőszobájában köt ki. Igen, mindez egy epizódban történik.
+  </p>
+
+  <p>
+    A 27. évad egyre bátrabban nyúl a politikához. A harmadik rész, a <em>Sickofancy</em> középpontjában Randy Marsh áll, 
+    akit meglepetés ér: a bevándorlási hivatal elszállítja a Tegridy Farms összes mexikói munkását. Randy kétségbeesve kiált: 
+    „Azok az én mexikóim voltak!”, miközben Törcsi, a beszélő törlőkendő az egyetlen társa marad.
+  </p>
+
+  <p>
+    A farm megmentésére szokatlan terv születik: Randy mikrodózisú ketamint kóstolgatva a ChatGPT-hez fordul tanácsért, 
+    amely azt javasolja, hogy alakítsák át a gazdaságot egy mesterséges intelligenciával vezérelt agytrösztté. Így születik meg a 
+    Techridy, és Törcsit Washingtonba küldik, hogy Donald Trumpot személyesen győzze meg a marihuána országos legalizálásáról.
+  </p>
+
+  <p>
+    Washington utcáin a kis törlőkendő tankok és katonák között halad, de lelkesen kiált: „Hű, Washington! Ez tényleg jó hely egy törlőkendőnek!” 
+    A Fehér Házban Törcsi vállalatvezetőkkel találkozik, akik ajándékokkal próbálják megnyerni az elnök jóindulatát. Randy hologrammal mutatja be, 
+    hogy maga Törcsi az ajándék, ám a törlőkendő rövidesen a fürdőszobában köt ki.
+  </p>
+
+  <p>
+    Ez már a harmadik epizód, amelyben Trump kapja a főszerepet: korábban meztelenre vetkőztették és aprócska péniszével viccelődtek, 
+    a második részben pedig Kristi Noem belügyminisztert mutatták groteszk figuraként. A premier több mint hatmillió nézőt vonzott, 
+    és a második rész minden eddigi rekordot megdöntött a sorozat történetében.
+  </p>
+  
+  <div id="age-check">
+  <p>🔞 Ez a tartalom csak 18 éven felülieknek szól. Elmúltál 18 éves?</p>
+  <button onclick="showVideo(true)">Igen, elmúltam 18 éves</button>
+  <button onclick="showVideo(false)">Nem, még nem vagyok 18 éves</button>
+</div>
+
+<div id="video-container" style="display:none;">
+  <iframe width="727" height="439" 
+    src="https://www.youtube.com/embed/KkB3BeUFHso" 
+    title="South Park 27. évad 3. rész összefoglaló – Trump káosz, AI marihuána és Törcsi legsötétebb kalandja" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" 
+    allowfullscreen>
+  </iframe>
+</div>
+
+  <p>Forrás(ok): <a href="https://index.hu" target="_blank" rel="noopener">Index.hu</a></p>
+
+  <footer>4. oldal / Kultúra – South Park nem viccel többet</footer>
+</div>
+
+  <!-- 4. OLDAL — KRIPTOVALUTA HÍR -->
+<div class="page">
+  <h2>💰 Bitcoin 113 828$ körül – csökkenő trend és új Layer 2 megoldás</h2>
+  <p class="author">Írta: Szabó Noémi 👩‍💻  (Kripto & Gazdaság)</p>
+
+  <p>
+    A Bitcoin (BTC) cikkünk írásakor 113 828 dollár körül mozog, és láthatóan egy csökkenő trendcsatornába került. 
+    A 114 400 dolláros alsó határ kulcsfontosságú szint lett volna. Az esés kapcsán felmerül a kérdés, hogy ez a 
+    piaci gyengeség jele-e, vagy csak azok a befektetők realizálják profitjukat, akik korábban rekordárfolyamon vásároltak.
+  </p>
+
+  <p>
+    A politikai hírek is hatással vannak a hangulatra: Donald Trump bejelentette, hogy találkozik Vlagyimir Putyinnal és 
+    Volodimir Zelenszkijjel Ukrajna biztonsági garanciáiról. Bár a részletek még nem tisztázottak, a javaslatok közös 
+    légi és tengeri járőrözést, valamint hírszerzési információk megosztását tartalmazzák. Ha előrelépés történik a 
+    háború befejezése felé, az közvetett módon támogathatja a kockázatos eszközöket, például a Bitcoint.
+  </p>
+
+  <p>
+    A rövid távú visszaesés ellenére az intézményi befektetők megtartják a Bitcoint: a Metaplanet és a Strategy cégek 
+    ezen a héten 1 185 BTC-t vásároltak, hisznek a hosszú távú értékében. A kapcsolódó vállalatok részvényei is 
+    emelkedtek, jelezve a kriptovaluta elfogadásának növekedését.
+  </p>
+
+  <p>
+    A technikai kép alapján a Bitcoin válaszút előtt áll. Az RSI 42 körül van, ami enyhe eladottságot jelez, de még van 
+    tér az emelkedésre. A 112 000 dollár körüli visszaeséseket vásárlásra, míg a 120 000 dollár körüli emelkedéseket 
+    eladásra használják a kereskedők.
+  </p>
+
+  <p>
+    Újdonság a piacon: <strong>Bitcoin Hyper ($HYPER)</strong> – az első Layer 2 megoldás, amely a Bitcoinra épül, és 
+    a Solana Virtual Machine (SVM) hajtja. Gyors okosszerződések, alkalmazások és mém tokenek segítik a Bitcoin ökoszisztéma 
+    frissítését. A projektet a Coinsult auditálta, és előértékesítése már meghaladta a 10,8 millió dollárt. A HYPER érmék 
+    jelenleg 0,012755 dolláros áron érhetők el.
+  </p>
+
+  <p>Forrás(ok): <a href="https://coinmarketcap.com" target="_blank" rel="noopener">CoinMarketCap</a></p>
+
+  <footer>5. oldal / Kripto & Gazdaság – Bitcoin és a Hyper új lehetőségei</footer>
+</div>
+
+  
+ <div class="page"> 
+  <h2>🚨 Aggresszív sofőr fenyegetett egy másik jármű vezetőjét Budapest VII. kerületében</h2>
+  <p class="author">Írta: Horvát Lilla 👩</p>
+
+  <p>
+    Augusztus 15-én reggel a <strong>Budapest VII. kerületében, a Damjanich és Rottenbiller utcák kereszteződésénél</strong> egy járművezető súlyosan szabálytalan manőverekbe kezdett. Az illető átlépte a záróvonalat, a szembejövő sávban haladt, majd leszorított egy másik sofőrt és többször büntetőfékezett, végül kiszállva fenyegetőzött.
+  </p>
+
+  <p>
+    A Budapesti Autósok beszámolója szerint egy olvasójuk fedélzeti kamerája rögzítette az esetet reggel 7:44-kor. A felvételen látható, hogy az ezüst színű Volkswagen T-Roc sofőrje balról előzte meg a mögötte várakozó sort, a záróvonalon és a szembejövő sávon áthaladva.
+  </p>
+
+  <p>
+    Miután a jelzőlámpa zöldre váltott, a Volkswagen vezetője a mögötte haladó járműveket kerülgetve próbált előrébb jutni. Nem sikerült elém bekanyarodnia, ezért a Fiat kisteherautót kényszerítette lassításra, hogy besorolhasson a tényleges kanyarodó sávba.
+  </p>
+
+  <p>
+    A helyzet tovább fajult: a sofőr indexelés nélkül a jobb oldali sávba húzódott, megpróbált leszorítani, majd büntetőfékezett és végül megállásra kényszerített. Kiszállt, az ablak mellett fenyegetőzött, de a kamera láttán visszaszállt az autójába és elhajtott a Wesselényi utca felé.
+  </p>
+
+  <p>
+    Érdekes mellékszál, hogy a Rottenbilleren a szemközti sávban ekkor egy rendőrautó haladt el, de a sofőr fenyegető magatartását nem észlelték, vagy nem léptek közbe – így a veszélyes incidens zavartalanul zajlott le.
+  </p>
+  
+  <iframe width="727" height="439" src="https://www.youtube.com/embed/5F3VmB4-16c" title="Leszorított, büntetőfékezett, kipattant, fenyegetőzött" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+  <p>Forrás(ok): <a href="https://budapestiutosok.hu" target="_blank">Budapesti Autósok</a> és <a href="https://index.hu" target="_blank">Index.hu</a></p>
+
+  <footer>6. oldal / Közlekedés – Aggresszív sofőr és fenyegetőzés Budapest VII. kerületében</footer>
+</div>
+
+ <!-- 6. OLDAL — KÖZÚTI BALESET ÚJ HÍR -->
+<div class="page">
+  <h2>🚨 Országszerte több baleset történt – friss eset Vácon is</h2>
+  <p class="author">Írta: Farkas Gábor 👨‍💼 (Helyszíni tudósítás)</p>
+
+  <p>
+    <strong>Augusztus 19-én</strong> az ország különböző pontjain számos közúti baleset történt. 
+    A jelentések szerint az <strong>M4/M35 csomópontnál</strong> egy kisbusz árokba hajtott, 
+    hat utas sérült meg. A <strong>405-ös főúton, Nyáregyháza közelében</strong> személyautók ütköztek, 
+    két fő súlyosan, egy könnyebben sérült. Az <strong>M1-es autópályán Tatabánya irányában</strong> 
+    egy autó felborult, a sofőrt helikopterrel szállították kórházba.
+  </p>
+
+  <p>
+    További esetek közül kiemelhető: <strong>Nyíregyházán</strong> két autó karambolozott, 
+    hárman könnyebben megsérültek; a <strong>Tiszabura külterületén</strong> történt ütközésben 
+    pedig egy ember súlyosan megsérült. Budapesten a <strong>XX. kerületben</strong> villamos 
+    gázolt el egy embert, akit kórházba vittek.
+  </p>
+
+  <p>
+    <strong>Ma, augusztus 20-án</strong> is történt friss baleset: 
+    <strong>Vácon, a Damjanich János téren</strong> két autó ütközött össze. 
+    Három utas érintett, a járműveket a tűzoltók áramtalanították, 
+    a helyszínt ideiglenesen lezárták.
+  </p>
+
+  <p>Források: 
+    <a href="https://www.katasztrofavedelem.hu/30/tegnap-tortent" target="_blank" rel="noopener">BM Országos Katasztrófavédelem</a>, 
+    <a href="https://www.hirstart.hu/keres/Baleset" target="_blank" rel="noopener">Hírstart</a>
+  </p>
+
+  <p>
+    A rendőrség arra kéri az autósokat, hogy <strong>fokozott figyelemmel közlekedjenek</strong>, 
+    és nyári hőségben kerüljék a fáradt vezetést. 
+    Útinform: <a href="https://utinform.hu" target="_blank" rel="noopener">Útinform</a>.
+  </p>
+
+  <footer>7. oldal / Helyi hírek – Országos balesetek és a váci ütközés</footer>
+</div>
+
+ <div class="page">
+  <h2>🥋 Európai Reménységek Versenye és technikai kurzus Győrben</h2>
+  <p class="author">Írta: Zsófi 👩‍🦰 (TTBus Kft. dolgozó)</p>
+
+  <p>
+    Az Európai Judo Szövetség szervezésében 2025. augusztus 15–17. között Győr adott otthont az 
+    <strong>Európai Reménységek Versenyének</strong> és technikai kurzusának, amelyen 19 ország közel 300 fiatal judósa vett részt. 
+    A háromnapos esemény nemcsak a küzdelmekről szólt, hanem a versenyzők és edzők szakmai fejlődését is szolgálta.
+  </p>
+
+  <p>
+    A technikai edzéseket a világbajnoki ezüstérmes Kazuhiko Tokuno (Japán) és az Európa-bajnok Aleksandar Kukolj (Szerbia) vezette, 
+    akik magas szintű tudásukkal segítették a fiatal judósokat.
+  </p>
+
+  <p>
+    A Zalaegerszegi Judo SE serdülő korosztályú versenyzői közül Csizmadia Flóra, Sallai Botond, Verebi Ádám és Hencz Hunor 
+    vettek részt a viadalon és a szemináriumon, edzőik Kiss Zoltán és ifj. Nagysolymosi Sándor vezetésével.
+  </p>
+
+  <p>
+    Az U15-ös korosztály 55 kg-os súlycsoportjában Hencz Hunor öt mérkőzést vívott és végül az 5. helyen zárt. 
+    Az U15-ös 73 kg-os súlycsoportban Sallai Botond a 7. helyen végzett. Verebi Ádám és Csizmadia Flóra ezúttal nem tudott pontszerző helyet elérni.
+  </p>
+
+  <p>Forrás(ok): <a href="https://www.egerszegihirek.hu/" target="_blank" rel="noopener">Egerszegi hírek</a></p>
+
+  <footer>8. oldal / Sport – Európai Reménységek Verseny Győrben</footer>
+</div>
+
+ <div class="page">
+  <h2>⚠️ TT285 figyelmeztetése: Ne dőlj be a Robuxos átverésnek!</h2>
+  <p class="author">Írta: Varga Áron 👨‍💼 (Közösségi hírszerkesztő)</p>
+
+  <p>
+    2025. július 16-án, szerdán <strong>TT285</strong>, a népszerű közösségi admin, hivatalos figyelmeztetést tett közzé a <strong>Kékhegyi Discord-felhasználók</strong> számára egy újfajta <strong>Robuxos átveréssel kapcsolatban</strong>.
+  </p>
+
+  <p>
+    A figyelmeztetés szerint egy bizonyos <strong>zsombor0083</strong> nevű felhasználó különböző szervereken próbálja átverni a tagokat egy hamis <strong>Robux piramisjátékkal</strong>, és privát üzenetekben próbálja rávenni őket, hogy csatlakozzanak az általa ajánlott szerverhez.
+  </p>
+
+  <blockquote style="background-color: #ffe5e5; padding: 12px; border-left: 5px solid red;">
+    <strong>TT285 üzenete:</strong><br>
+    „Figyelem! Ez a 'csodás úriember' valószínűleg rátok for írni, és valami Robuxos piramisjátékba akar titeket belehúzni, ami valószínűleg átverés!<br>
+    Ne lépjetek be arra a szerverre!”
+  </blockquote>
+
+  <p>
+    A mellékelt képernyőmentésen egyértelműen látszik a <strong>zsombor0083</strong> felhasználó neve, akit többen is jelentettek a <strong>Kékhegyi közösségi szervereken</strong>. Az adminok már megkezdték az illető eltávolítását és a szerver védelmének erősítését.
+  </p>
+
+  <p>
+    <strong>Fontos tanács:</strong> soha ne kattints ismeretlen Discord-linkekre, különösen akkor, ha Robuxot, nyereményt vagy gyors meggazdagodást ígérnek. Ezek szinte mindig csalások!
+  </p>
+
+  <p>
+    A TT285 admin nyomatékosan kér minden felhasználót, hogy <strong>jelentsék a gyanús tevékenységet</strong>, és ne hagyják figyelmen kívül az ilyen figyelmeztetéseket. A közösség biztonsága mindannyiunk felelőssége.
+  </p>
+
+  <footer>9. oldal / Roblox Közösségi védelem – Robuxos scam figyelmeztetés</footer>
+ </div>
+
+ <div class="page">
+  <h2>🚨😱 Terepjáró rohant egy houstoni étterembe – influenszerek sérültek</h2>
+  <p class="author">Írta: Kovács László 🧑‍💼 (Helyszíni tudósító)</p>
+
+  <p>
+    Váratlan esemény okozott pánikot egy houstoni étteremben, amikor egy terepjáró behajtott az épületbe, miközben két influenszer épp a kamerák előtt értékelte a fogásokat. 
+    Az ütközés következtében üvegtörmelék szóródott szét, és mindkét vloggert kórházba szállították, míg a balesetet okozó sofőr sértetlen maradt.
+  </p>
+
+  <p>
+    A CuVee's Culinary Creations étterem tulajdonosa megerősítette, hogy a videó valós, és a történtek jelentős károkat okoztak az épületben. 
+    A helyszínen tartózkodó személyek beszámolói szerint a vlogger páros nem számított a balesetre, ezért minden pillanatot rögzítettek kamerájukkal, amit később közösségi oldalukon osztottak meg.
+  </p>
+
+  <p>
+    A hatóságok gyorsan megkezdték a vizsgálatot, és kiderült, hogy a terepjárót vezető nő nem állt alkohol vagy kábítószer hatása alatt. 
+    Elsődleges információk szerint a sofőr privát eseményre tartott, amikor a baleset bekövetkezett.
+  </p>
+
+  <p>
+    Az egyik influenszer megható posztot tett közzé, kiemelve, mennyire törékeny az élet, és hogy egy pillanat alatt minden megváltozhat. 
+    „Az élet túl rövid a haragra vagy a dühre. Engedd el, bocsáss meg, élj a mának, és becsüld meg a körülötted lévőket” – írta.
+  </p>
+
+  <p>
+    A megyei seriffhivatal folytatja a nyomozást, az étterem tulajdonosa pedig megkezdte a károk helyreállítását, hogy újranyithassa a vendéglátóhelyet.
+  </p>
+  
+  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Tomorrow Is NOT Promised… <a href="https://t.co/NUdzuC4iPb">pic.twitter.com/NUdzuC4iPb</a></p>&mdash; NinaUnrated (@NinaUnrated) <a href="https://twitter.com/NinaUnrated/status/1957271430770356569?ref_src=twsrc%5Etfw">August 18, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+  <p>Forrás(ok): <a href="https://www.index.hu" target="_blank">Index.hu</a></p>
+
+  <footer>10. oldal / Nemzetközi hírek – Houstonban influenszerek és étteremkárok</footer>
+</div>
+
+ <div class="page">
+  <h2>🏎️ 2026-os Forma-1: lassabb autók, de nem drámaian</h2>
+  <p class="author">Írta: Horváth Éva 👩‍💼</p>
+
+  <p>
+    Az FIA együléses autókért felelős igazgatója, <strong>Nikolas Tombazis</strong> eloszlatta a legnagyobb aggodalmakat a 2026-ban érkező új Forma-1-es szabályokkal kapcsolatban. A szakember szerint az új generációs autók lassulása jóval kisebb mértékű lesz, mint azt sokan vizionálták.
+  </p>
+
+  <p>
+    A számítások alapján az új autók <strong>1–2,5 másodperc közötti köridőhátrányban</strong> lehetnek a mostani generációhoz képest. Ez érzékelhető lassulás, de Tombazis szerint nem fenyeget az a forgatókönyv, hogy az F1 autói a Formula-2 szintjére esnének vissza.
+  </p>
+
+  <p>
+    A soron következő szabályreform egyszerre érinti a kasztnit és az erőforrást. A legfontosabb újítások: 
+    <ul>
+      <li><strong>Aktív aerodinamika:</strong> a szárnyak két külön konfigurációban működnek (egyenesekre és kanyarokra), felváltva a DRS-t és a ground effect-rendszert.</li>
+      <li><strong>Kevesebb leszorítóerő és légellenállás:</strong> könnyebb előzés és szorosabb futamok, kezdetben lassabb köridők.</li>
+      <li><strong>Új erőforrás-koncepció:</strong> az elektromos energia aránya 15%-ról 50%-ra nő, a belső égésű motor szerepe csökken, ami a hosszú egyenesek végén “clipping” problémát okozhat.</li>
+    </ul>
+  </p>
+
+  <p>
+    Tombazis hangsúlyozta, hogy a kezdeti lassulást a csapatok gyorsan ledolgozzák fejlesztéseikkel. „A szimulációk szerint 1–2,5 másodperces lassulás várható, de ez csak az elején lesz így. A mérnökök rövid időn belül felgyorsítják az autókat, és hamarosan senki nem fogja azt mondani, hogy túl lassú a Forma-1” – nyilatkozta.
+  </p>
+
+  <p>
+    Egyes istállók rosszabb helyzetben lehetnek induláskor, mert a pontos leszorítóerő-adatokat még nem minden csapat adta le. Ez azonban nem szokatlan: új szabályrendszernél mindig vannak, akik könnyebben, és vannak, akik nehezebben alkalmazkodnak.
+  </p>
+
+  <p>
+    A 2026-os szezon így mérföldkő lesz a Forma-1 történetében. Bár az autók elsőre lassabbnak tűnhetnek, a cél a fenntarthatóbb technológia, a jobb versenyzés és hosszú távon izgalmasabb bajnokság.
+  </p>
+  
+  <img src="https://cdn.origo.hu/2025/08/IBPaOQZ04qioqf_tgiASLUqUDzEeqqqkwXYYE3fOYsY/fit/1200/675/no/1/aHR0cHM6Ly9jbXNjZG4uYXBwLmNvbnRlbnQucHJpdmF0ZS9jb250ZW50L2I3MDM5NzVhNThmZDQ5N2ZiYjk4MGQyYjAyNzllMzI5.webp" alt="Kép" width="600" height="auto" onerror="this.onerror=null; this.src='https://urbanmove8.neocities.org/images/errorimage.png';" />
+
+  <p>Forrás(ok): <a href="https://origo.hu" target="_blank">Origo.hu</a></p>
+
+  <footer>11. oldal / Forma-1 – 2026-os szabályok és az új generációs autók</footer>
+</div>
+
+ <div class="page">
+  <h2>📝 A Kékhegyi Hírlap Közepes Nehézségű Keresztrejtvénye</h2>
+  <p class="author">Agytornáztató kihívás a legélesebb elméknek</p>
+  
+  <p>Töltsd ki a keresztrejtvényt, és teszteld a tudásodat a világ érdekességeiről! Kattints egy cellára, és kezdj el gépelni – szórakozás garantálva!</p>
+
+  <embed type="text/html" src="rejtveny.html" width="1200" height="800">
+  
+  <button id="firstPageBtn" style="position: fixed; top: 20px; left: 20px; padding: 10px 15px; font-family: Georgia, serif; background: #f2e7d5; border: 1px solid #888; cursor: pointer;">
+  Első cikkhez
+</button>
+
+  <footer>12. oldal / Játék – Keresztrejtvény</footer>
+ </div>
+
+ <div class="nav">
+  <button onclick="scrollPage(-1)">⬅ Előző oldal</button>
+  <button onclick="scrollPage(1)">Következő oldal ➡</button>
+ </div>
+
+ <div id="imgModal" onclick="closeModal(event)">
+  <span class="closeBtn" title="Bezárás">&times;</span>
+  <img id="modalImg" src="" alt="Nagyított kép" />
+ </div>
+
+ <script>
+ const book = document.querySelector('.book');
+  const firstPageBtn = document.getElementById('firstPageBtn');
+
+  firstPageBtn.addEventListener('click', () => {
+    book.scrollTo({
+      left: 0,
+      behavior: 'smooth' // nice smooth scroll back
+    });
+  });
+ 
+  function scrollPage(direction) {
+    const book = document.getElementById('book');
+    const pageWidth = window.innerWidth;
+    book.scrollBy({ left: pageWidth * direction, behavior: 'smooth' });
+  }
+  
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const modal = document.getElementById('imgModal');
+      const modalImg = document.getElementById('modalImg');
+      modal.style.display = 'flex';
+      modalImg.src = this.src;
+      modalImg.alt = this.alt || 'Nagyított kép';
+    });
+  });
+
+  function closeModal(e) {
+    if (
+      e.target.id === 'imgModal' ||
+      e.target.classList.contains('closeBtn')
+    ) {
+      const modal = document.getElementById('imgModal');
+      modal.style.display = 'none';
+      document.getElementById('modalImg').src = '';
+    }
+  }
+
+  window.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      const modal = document.getElementById('imgModal');
+      modal.style.display = 'none';
+      document.getElementById('modalImg').src = '';
+    }
+  });
+  
+  function showVideo(isAdult) {
+    if(isAdult) {
+      document.getElementById('age-check').style.display = 'none';
+      document.getElementById('video-container').style.display = 'block';
+    } else {
+      alert('Sajnáljuk, csak 18 éven felüliek nézhetik ezt a videót!');
+    }
+  }
+ </script>
+ </body>
+ </html>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <title>📰 Kékhegy Hírlap – 2025. július 15.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: #faf7f1;
+      overflow: hidden;
+    }
+
+    .book {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: row;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+    }
+
+    .page {
+      flex: none;
+      width: 100vw;
+      height: 100vh;
+      padding: 40px;
+      box-sizing: border-box;
+      scroll-snap-align: start;
+      border-left: 3px double #004080;
+      border-right: 3px double #004080;
+      background: #fffef9;
+      box-shadow: inset 0 0 8px rgba(0,0,0,0.1);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      text-align: center;
+      border-bottom: 3px double #000;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    h1, h2 {
+      color: #002244;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #0078d7;
+      padding-bottom: 5px;
+    }
+
+    h3 {
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+
+    .author {
+      font-style: italic;
+      color: #555;
+      font-size: 0.9em;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #111;
+      line-height: 1.5;
+    }
+
+    footer {
+      margin-top: auto;
+      font-size: 0.9em;
+      color: #888;
+      text-align: center;
+      user-select: none;
+    }
+
+    .nav {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .nav button {
+      background: #0078d7;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      margin: 0 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav button:hover {
+      background: #005fa3;
+    }
+
+    /* Image zoom on hover */
+    img {
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Modal styles for clicked image */
+    #imgModal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.8);
+      align-items: center;
+      justify-content: center;
+    }
+    #imgModal img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 0 20px #000;
+    }
+    #imgModal .closeBtn {
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size: 2.5rem;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="book" id="book">
+
+  <!-- Page 1 – OMSZ Weather -->
+  <div class="page">
+    <header>
+      <h1>📰 KÉKHEGY HÍRLAP</h1>
+      <p>2025. július 15. • Kedd - Nyolcadik kiadás</p>
+      <p>Következő kiadás: Holnap 10:00</p>
+    </header>
+
+    <h2>🌤️ OMSZ: Ma kellemesen meleg idő, riasztás nélkül</h2>
+    <p class="author">Írta: Tóth Anna 👱‍♀️ (OMSZ napi jelentés alapján)</p>
+    
+    <p>
+      Az Országos Meteorológiai Szolgálat <strong>2025. július 15-én</strong>, Kedden kiadott jelentése szerint ma <strong>nincs érvényben semmilyen időjárási riasztás</strong> Budapest és Kékhegy térségében. A hőmérséklet a nap folyamán várhatóan <strong>22–28 Celsius-fok között</strong> alakul, helyenként enyhe széllel és sok napsütéssel.
+    </p>
+    
+    <p>
+      Az időjárás ideális a szabadtéri tevékenységekhez, így bátran tervezhetünk sétát, kirándulást vagy akár vásárlást is a Kékhegy Plázában. Ugyanakkor a napos órákban továbbra is ajánlott a megfelelő <strong>napvédelem</strong>, különösen 11:00 és 15:00 óra között.
+    </p>
+    
+    <p>
+      A TTBus Kft. megerősítette, hogy <strong>az összes járműve újra közlekedik</strong>, beleértve az Ikarus 260 és 280 típusokat is, mivel a hőmérséklet már nem indokolja ezek leállítását.
+    </p>
+    
+    <p>
+      Az utasokat arra kérik, hogy továbbra is figyeljék az aktuális menetrendet, és élvezzék a nyári időszakot a közösségi közlekedés kényelmével!
+    </p>
+    
+    <img src="https://www.idokep.hu/terkep/hu600/idokep2.webp" alt="Időjárási térkép – Kékhegy térsége" width="600" height="auto">
+    
+    <p>Forrás(ok): <a href="https://idokep.hu">Időkép.hu</a></p>
+
+    <footer>1. oldal / Időjárás – OMSZ jelentés</footer>
+  </div>
+
+  <!-- Page 2 – Baleset a Juci Mama Zöldség-Gyümölcs előtt -->
+  <div class="page">
+    <h3>🚗 Baleset történt a Juci Mama Zöldség-Gyümölcs bolt előtt</h3>
+    <p class="author">Írta: Szabó Péter 🧑‍💼</p>
+    <p>
+      Hétfő reggel Kékhegy egyik frekventált pontján, a Juci Mama Zöldség-Gyümölcs bolt előtt sajnálatos baleset történt. Egy személygépkocsi eddig ismeretlen okból nekiütközött egy másik autónak, amely éppen parkolóhelyről indult ki. Az ütközés következtében mindkét jármű jelentős sérüléseket szenvedett, és az egyik autó roncsolódása miatt a helyszínen forgalmi torlódás alakult ki.
+    </p>
+    <p>
+      A balesetben személyi sérülés nem történt, azonban a helyszínelés és a rendőrségi intézkedés több órán át tartott, amíg a közlekedés biztonságosan helyreállt. Többen a közelben tartózkodó helyiek közül is megosztották az eseményt a helyi közösségi csoportokban, ahol tanácsolták a sofőröket, hogy a következő időszakban legyenek különösen óvatosak a környéken, mivel a hőség és a forgalmi dugók miatt a reakcióidő is lassabb lehet.
+    </p>
+    <p>
+      A rendőrség további vizsgálatot folytat a baleset körülményeinek tisztázására, és arra kéri a lakosságot, hogy figyeljék a közlekedési szabályokat, különösen a parkolók környékén és az üzletek előtti területeken.
+    </p>
+
+    <img src="https://files.catbox.moe/v10659.jpeg" alt="Koccanás a parkolóban" height="auto" width="500">
+
+    <footer>2. oldal / Közlekedési baleset – Helyi hírek</footer>
+  </div>
+
+  <!-- Page 3 – TTBus Kft. bejelentése -->
+<div class="page">
+  <h2>🚌 TTBus Kft.: Újra forgalomban az Ikarus 260 és 280 típusú buszok!</h2>
+  <p class="author">Írta: Blaha Júlia 👩 (TTBus Kft.)</p>
+
+  <p>
+    Jó hír az Ikarus-rajongóknak: a <strong>mérsékelt magashőmérséklet-riadó lejártával</strong> a TTBus Kft. hivatalosan bejelentette, hogy 
+    <strong>az Ikarus 260 és Ikarus 280 típusú buszok újra visszatérnek a forgalomba</strong>!
+    A döntést az enyhébb, kellemes nyári időjárás tette lehetővé, amely már nem veszélyezteti az utasok és sofőrök komfortját.
+  </p>
+  <p>
+    Az elmúlt napokban a társaság kizárólag légkondicionált járműveket használt, mint a <strong>Volvo 7700A</strong>, <strong>Jelcz Vero</strong>,
+    <strong>MAN GL</strong>, <strong>MAN A21</strong> és a <strong>Solaris Urbino 10</strong>, de most ismét elérhetőek a klasszikus járművek is a megszokott járatokon.
+  </p>
+  <p>
+    A TTBus Kft. hangsúlyozza, hogy továbbra is figyelemmel kísérik az időjárási helyzetet, és szükség esetén ismét intézkedéseket hoznak a biztonság érdekében.
+  </p>
+  <p>
+    Köszönik az utasok türelmét az elmúlt időszak korlátozásai alatt, és mindenkit szeretettel várnak a jól megszokott járműveken is!
+  </p>
+
+  <footer>3. oldal / TTBus bejelentés – Ikarus visszatér</footer>
+</div>
+
+  <!-- Page 4 – Kékhegy Közösségi Programok -->
+  <div class="page">
+    <h2>🎉 Kékhegy közösségi hírek: Nyári programok és lehetőségek</h2>
+    <p class="author">Írta: Kovács Eszter 👩‍🎨 (Kékhegyi Közösségi Hivatal)</p>
+    
+    <p>
+      Ahogy a nyár egyre melegebbé válik, Kékhegy lakói egyre többet gondolkodnak azon, hogyan tölthetik aktívan és szórakoztatóan az időt a családjukkal és barátaikkal. Örömmel jelentjük be, hogy a Kékhegyi Közösségi Hivatal idén is számos eseményt és programot szervez a lakosság számára.
+    </p>
+    <p>
+      Július folyamán többek között lesznek szabadtéri filmvetítések a Kékhegyi Parkban, kézműves foglalkozások gyerekeknek a helyi művelődési házban, valamint tánctanfolyamok és sportnapok a fiatalabb korosztálynak. Kiemelt programként említhetjük a július 20-i Nyári Vásárt, ahol helyi termelők árulják majd friss zöldségeiket, gyümölcseiket és kézműves termékeiket.
+    </p>
+    <p>
+      Fontos megjegyezni, hogy a programok egy része a jelenlegi időjárási viszonyok miatt módosulhat, ezért kérjük a résztvevőket, hogy folyamatosan figyeljék a hivatalos közösségi oldalakat és a helyi hirdetőtáblákat a friss információkért.
+    </p>
+    <p>
+      A közösségi hivatal örömmel vár mindenkit, aki aktívabbá szeretné tenni a nyári hónapokat, és élvezni szeretné a helyi közösség összetartó erejét. A részvétel általában ingyenes vagy nagyon kedvezményes, így bátran lehet csatlakozni akár barátokkal, akár egyedül.
+    </p>
+
+    <img src="https://cdn.pixabay.com/photo/2016/11/29/06/09/festival-1869511_1280.jpg" alt="Nyári közösségi program" height="auto" width="500">
+
+    <footer>4. oldal / Közösségi élet – Helyi programok</footer>
+  </div>
+  
+    <!-- Page 5 – Kékhegyi Fesztivál -->
+  <div class="page">
+    <h2>🎤 Kékhegyi Fesztivál 2025 – Ünnepeljük együtt a nyarat!</h2>
+    <p class="author">Írta: Varga Dániel 👨‍🎤🎸 (Kékhegyi Rendezvényszervező)</p>
+    
+    <p>
+      Július 25-én a Kékhegyi Park ismét megtelik élettel és zenével, hiszen idén is megrendezésre kerül a népszerű <strong>Kékhegyi Fesztivál</strong>. Ez a nyári esemény az egész környék legnagyobb ünnepe, ahol minden korosztály megtalálhatja a kedvére való programot és kikapcsolódást.
+    </p>
+    <p>
+      A fesztiválon helyi és országos ismertségű zenekarok lépnek fel, köztük rock, pop, és elektronikus műfajokban is. Emellett számos gasztronómiai stand várja a látogatókat, ahol frissítő italokat és ízletes helyi finomságokat kóstolhatnak meg. Természetesen a gyerekekről sem feledkeznek meg: külön játszóház, arcfestés és kézműves foglalkozások biztosítják a szórakozást a kicsiknek.
+    </p>
+    <p>
+      A szervezők arra kérik a látogatókat, hogy hozzanak magukkal pokrócot vagy széket a kényelmes pihenéshez, és ne feledkezzenek meg a megfelelő napvédelemről, mert a nap sugarai ilyenkor még erősen sütnek.
+    </p>
+    <p>
+      A Kékhegyi Fesztivál kiváló alkalom arra, hogy a közösség tagjai találkozzanak, megismerjék egymást, és együtt töltsenek el egy felejthetetlen napot a szabadban. Jegyek elővételben már kaphatók a helyi közösségi irodában és online.
+    </p>
+
+    <img src="https://cdn.pixabay.com/photo/2018/08/21/17/43/music-festival-3618756_1280.jpg" alt="Kékhegyi Fesztivál koncert" height="auto" width="500">
+
+    <footer>5. oldal / Kékhegyi Fesztivál – Nyári közösségi esemény</footer>
+  </div>
+
+<!-- Page 6 – TT285 Megyaszó Update -->
+<div class="page">
+  <h2>🚌 Nyírmeggyes – Megyaszó update (V0.05)</h2>
+  <p class="author">Írta: Magyar Zoltán 👨</p>
+
+  <p>
+    2025. július 14-én este jelent meg a <strong>Nyírmeggyes frissítésének V0.05-ös verziója</strong>, amely új települést, járatokat, és egy különleges Volvo 7700A FL járművet is hozott magával. Az alábbiakban összefoglaljuk a legfontosabb változásokat.
+  </p>
+
+  <h3>🚏 Új járatok és területek</h3>
+  <ul>
+    <li>🗺️ Új település: <strong>Megyaszó</strong></li>
+    <li>🛣️ Járat 4: <em>Máriagyűd Községháza – Megyaszó Autóbuszforduló</em></li>
+    <li>🛣️ Járat 1117: <em>Nyírmeggyes – Dány – Máriagyűd – Megyaszó</em></li>
+    <li>🛣️ Járat T: <em>Nyírmeggyes autóbuszgarázs – Megyaszó Köztemető</em></li>
+  </ul>
+
+  <h3>🆕 Új jármű: Volvo 7700A Facelift</h3>
+  <p>
+    A frissítéssel bekerült az új <strong>Volvo 7700A Facelift</strong>, amely a játék egyik legmodernebb járműve. Az alap Volánbuszos verzió minden játékos számára ingyenesen elérhető.
+  </p>
+
+  <h3>💸 Gamepass részletek</h3>
+  <ul>
+    <li>🎨 Tartalmazott festések:
+      <ul>
+        <li>Gemenc Volán</li>
+        <li>Hajdú Volán</li>
+        <li>Vértes Volán</li>
+        <li>Zala Volán</li>
+        <li>Körös Volán</li>
+        <li>DAKK</li>
+        <li>Speciális: <strong>KXH-604 rendszámos verzió</strong></li>
+      </ul>
+    </li>
+    <li>💰 Ár: <strong>40 Robux</strong></li>
+    <li>🕐 Időnként leárazva vagy <strong>ingyen kipróbálható 1-2 napig</strong></li>
+  </ul>
+
+  <p>
+    A TT285 csapata köszöni a támogatásokat, és mindenkinek jó játékot kíván a nyári szünetre! A játék fejlesztése tovább folytatódik.
+  </p>
+
+  <img src="https://i.ytimg.com/vi/QdUmIyM8G7M/maxresdefault.jpg" alt="Volvo 7700A FL – Volánbusz" width="500" height="auto">
+
+  <footer>6. oldal / Nyírmeggyes – Megyaszó frissítés</footer>
+</div>
+
+
+</div>
+
+<div class="nav">
+  <button onclick="scrollPage(-1)">⬅ Előző oldal</button>
+  <button onclick="scrollPage(1)">Következő oldal ➡</button>
+</div>
+
+<!-- Modal for image zoom -->
+<div id="imgModal" onclick="closeModal(event)">
+  <span class="closeBtn" title="Bezárás">&times;</span>
+  <img id="modalImg" src="" alt="Nagyított kép" />
+</div>
+
+<script>
+  function scrollPage(direction) {
+    const book = document.getElementById('book');
+    const pageWidth = window.innerWidth;
+    book.scrollBy({ left: pageWidth * direction, behavior: 'smooth' });
+  }
+  
+  // Open modal when image clicked
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const modal = document.getElementById('imgModal');
+      const modalImg = document.getElementById('modalImg');
+      modal.style.display = 'flex';
+      modalImg.src = this.src;
+      modalImg.alt = this.alt || 'Nagyított kép';
+    });
+  });
+
+  // Close modal when clicking outside image or on close button
+  function closeModal(e) {
+    if (
+      e.target.id === 'imgModal' ||
+      e.target.classList.contains('closeBtn')
+    ) {
+      const modal = document.getElementById('imgModal');
+      modal.style.display = 'none';
+      document.getElementById('modalImg').src = '';
+    }
+  }
+
+  // Close modal on ESC key
+  window.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      const modal = document.getElementById('imgModal');
+      modal.style.display = 'none';
+      document.getElementById('modalImg').src = '';
+    }
+  });
+</script>
+
+</body>
+</html>

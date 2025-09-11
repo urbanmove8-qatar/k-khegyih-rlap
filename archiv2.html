@@ -1,0 +1,359 @@
+<!DOCTYPE html> 
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <title>📰 Kékhegy Hírlap – Urbanmove 8 Edition</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: #faf7f1;
+      overflow: hidden;
+    }
+
+    .book {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: row;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+    }
+
+    .page {
+      flex: none;
+      width: 100vw;
+      height: 100vh;
+      padding: 40px;
+      box-sizing: border-box;
+      scroll-snap-align: start;
+      border-left: 3px double #004080;
+      border-right: 3px double #004080;
+      background: #fffef9;
+      box-shadow: inset 0 0 8px rgba(0,0,0,0.1);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      text-align: center;
+      border-bottom: 3px double #000;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    h1, h2 {
+      color: #002244;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #0078d7;
+      padding-bottom: 5px;
+    }
+
+    h3 {
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+
+    .author {
+      font-style: italic;
+      color: #555;
+      font-size: 0.9em;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #111;
+      line-height: 1.5;
+    }
+
+    footer {
+      margin-top: auto;
+      font-size: 0.9em;
+      color: #888;
+      text-align: center;
+      user-select: none;
+    }
+
+    .nav {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .nav button {
+      background: #0078d7;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      margin: 0 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav button:hover {
+      background: #005fa3;
+    }
+
+    /* Image zoom on hover */
+    img {
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Modal styles for clicked image */
+    #imgModal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.8);
+      align-items: center;
+      justify-content: center;
+    }
+    #imgModal img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 0 20px #000;
+    }
+    #imgModal .closeBtn {
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size: 2.5rem;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="book" id="book">
+
+  <!-- Page 1 -->
+  <div class="page">
+    <header>
+      <h1>📰 KÉKHEGY HÍRLAP</h1>
+      <p>2025. július 8. • Kedd</p>
+      <p>Következő kiadás: holnap 10:00</p>
+    </header>
+
+    <h2>🌬️ Mérsékelt szélriadó Magyarországon!</h2>
+    <p class="author">Írta: Tóth Anna 👱‍♀️</p>
+    <p>
+      Az Országos Meteorológiai Szolgálat mérsékelt szélriadót adott ki Magyarország több régiójára, köztük Kékhegy környékére is. A szakemberek előrejelzése szerint a szélsebesség átmenetileg meghaladhatja a 70 km/h-t, ami különösen veszélyessé teszi a szabadban tartózkodást és a közlekedést.
+    </p>
+    <p>
+      Az erős széllökések megzavarhatják a forgalmat, okozhatnak kisebb károkat az ingatlanokban, illetve növelhetik a balesetek kockázatát, különösen a magasabb járművek, például a buszok és a vonatok esetében. Ezért a meteorológiai szolgálat azt javasolja, hogy mindenki legyen óvatos, kerüljék a fák és vezetékek közelségét, és lehetőség szerint halasszák el a nem feltétlenül szükséges szabadtéri programokat.
+    </p>
+    <p>
+      A hatóságok folyamatosan figyelemmel kísérik a helyzetet, és további frissítéseket ígérnek, amint a vihar lecsillapodik vagy újabb veszélyek merülnek fel. Addig is mindenki maradjon biztonságban, és használja a hivatalos vészjelző alkalmazásokat a legfrissebb információkért.
+    </p>
+    <img src="https://met.hu/img/warning/wbxX/20250708_1201//wbta20250708_1201+ts.png" alt="Kép" height="auto" width="500">
+    <p>Forrás: <a href="https://met.hu">OMSZ (met.hu)</a> </p>
+
+    <h3>🚌 TTBus 9-es és 11-es járatai felfüggesztve</h3>
+    <p class="author">Írta: Szabó László 👨 (TTBus Kft.)</p>
+    <p>
+      A TTBus Kft. a biztonság elsődlegességét szem előtt tartva úgy döntött, hogy 2025. július 8-tól ideiglenesen felfüggeszti a 9-es és 11-es buszvonalak közlekedését a Kékhegy térségében a várható erős szél miatt. Ez a lépés elengedhetetlen annak érdekében, hogy megelőzzék a szél által okozott baleseteket és az utasok testi épségének veszélyeztetését.
+    </p>
+    <p>
+      Az utasoknak javasoljuk, hogy folyamatosan figyeljék a TTBus hivatalos közleményeit, és szükség esetén használják az alternatív közlekedési módokat. A szolgáltató megtesz minden tőle telhetőt, hogy a járatok mielőbb újrainduljanak, amint a szélviszonyok ezt biztonságosan lehetővé teszik.
+    </p>
+    <p>
+      Emellett a TTBus arra kéri az utasokat, hogy tartsák be az egyéb időjárási figyelmeztetéseket is, és lehetőség szerint halasszák el a szükségtelen utazásokat a viharos időszakban.
+    </p>
+    
+    <img src="https://files.catbox.moe/kz83nc.png" alt="Kép" height="auto" width="500">
+
+    <footer>1. oldal / Időjárás és Közlekedés – Buszjáratok</footer>
+  </div>
+
+  <!-- Page 2 -->
+  <div class="page">
+
+    <h2>🚆 Kékhegy Vasútvonal szünetel a szélvihar miatt</h2>
+    <p class="author">Írta: Józsi bácsi 🧓 (Kékhegy Vasút)</p>
+    <p>
+      Hölgyeim és uraim, kedves utasok! A mai nap nem egy átlagos nap, hiszen a Kékhegy Vasútvonal ideiglenesen megálljt parancsolt magának a viharos szél miatt. Nem indítjuk el a vonatokat addig, amíg a természet meg nem nyugszik, és biztonságos körülményeket nem biztosít.
+    </p>
+    <p>
+      A vonatvezetők és a vasúti személyzet naponta többször ellenőrzik a helyzetet, és igyekeznek a lehető leghamarabb helyreállítani a szolgáltatást. Addig is, aki teheti, nézzen utána a pótlóbuszoknak vagy más közlekedési lehetőségeknek, mert a biztonság mindennél fontosabb.
+    </p>
+    <p>
+      Emlékeztetnék mindenkit, hogy nem érdemes elkapkodni a dolgokat, a jó utazás megvár, a biztonság pedig mindennek az alapja. Figyeljék a hivatalos közleményeket, és legyenek türelmesek, míg a szélcsend visszatér.
+    </p>
+
+    <footer>2. oldal / Közlekedés – Vasúti figyelmeztetés</footer>
+  </div>
+
+  <!-- Page 3 -->
+  <div class="page">
+    <h2>🌳 Óriási fa döntött ki egy házat a Kápolna téren</h2>
+    <p class="author">Írta: Kovács Márk 👨‍🦳</p>
+    <p>
+      Hétfő délután hatalmas meglepetés érte a Kápolna tér lakóit: a tomboló szélvihar során egy idős, méretes fa kidőlt, és egy közeli családi házra zuhant. A fa hatalmas erejével összetört egy részt a tetőből, és jelentős anyagi károkat okozott az épületben.
+    </p>
+    <p>
+      Szerencsére a házban senki sem tartózkodott a baleset idején, így személyi sérülés nem történt, azonban a lakók azonnal értesítették a helyi hatóságokat és a tűzoltókat, akik gyorsan a helyszínre érkeztek és megkezdték a mentési és helyreállítási munkálatokat.
+    </p>
+    <p>
+      A szakértők azt javasolják, hogy az ilyen szeles időben mindenki legyen fokozottan óvatos, és ellenőrizze saját ingatlanja környezetét, hogy elkerülhessük a hasonló eseteket a jövőben.
+    </p>
+
+    <h2>🏢 Orkánerejű szél tépte le a Szegedi Tudományegyetem egyik épületének tetejét</h2>
+    <p class="author">Írta: Nagy Lilla 👩</p>
+    <p>
+      A hétfői szélvihar olyan erővel csapott le a Szegedi Tudományegyetem egyik épületére, hogy annak tetejét letépte, ami sajnálatos módon a közeli nyugdíjas lakócentrumra zuhant. Az eset komoly pánikot okozott a környéken élők között, és több lakó is könnyebb sérüléseket szenvedett.
+    </p>
+    <p>
+      A mentőszolgálat és a tűzoltók gyorsan a helyszínre érkeztek, és megkezdték a kárelhárítást, valamint a sérültek ellátását. A hatóságok vizsgálják, hogy hogyan kerülhetett sor az ilyen mértékű károkozásra, és további biztonsági intézkedéseket terveznek a jövőbeni hasonló viharok ellen.
+    </p>
+    <p>
+      A lakócentrum vezetősége arra kéri a lakókat, hogy tartsák be a hatóságok utasításait, és ha szükséges, ideiglenesen hagyják el a veszélyeztetett területet.
+    </p>
+    
+    <h4>Videók:</h4>
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <iframe
+        name="f35127cfb4f39c4f1"
+        height="60px"
+        width="300px"
+        data-testid="fb:video Facebook Social Plugin"
+        title="fb:video Facebook Social Plugin"
+        frameborder="0"
+        allowtransparency="true"
+        allowfullscreen="true"
+        scrolling="no"
+        allow="encrypted-media"
+        loading="lazy"
+        src="https://www.facebook.com/v5.0/plugins/video.php?allowfullscreen=true&amp;app_id=330827937019153&amp;autoplay=true&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df42a994a58b8bf95c%26domain%3Dindex.hu%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Findex.hu%252Ff91301545026d3589%26relation%3Dparent.parent&amp;container_width=727&amp;href=https%3A%2F%2Fwww.facebook.com%2Fmetkep.met%2Fvideos%2F1787435878477032%2F&amp;lazy=true&amp;locale=hu_HU&amp;sdk=joey&amp;show_captions=true&amp;show_text=false&amp;width=auto"
+        style="border: none; width: 900px; height: 700px; visibility: visible;"
+        class=""
+      ></iframe>
+
+      <iframe
+        width="345"
+        height="613"
+        src="https://www.youtube.com/embed/ilvAHI5_O5w"
+        title="Szeged, 2025. július 7. , Orkánerejű szél - SZTE épület födőmrendszerét letépte"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </div>
+    
+    <p>Források: Youtube és Facebook</p>    
+    
+    <footer>3. oldal / Vihar és Káresetek – Kápolna tér és Szeged</footer>
+  </div>
+  
+  <!-- Page 4 -->
+<div class="page">
+  <h2>🌪️ Bow echo-s szupercella tart Debrecen felé!</h2>
+  <p class="author">Írta: Fazekas Júlia 👩</p>
+  <p>
+    A mai nap egyik legveszélyesebb meteorológiai eseménye zajlik jelenleg: egy bow echo-s szupercella viharzóna mozog keleti irányba, és várhatóan Debrecen térségét is elérheti a következő órákban. Az OMSZ kiemelten figyelmezteti a lakosságot, mivel a cella extrém erejű széllökéseket, felhőszakadást, és jégesőt is hozhat.
+  </p>
+  <p>
+    A bow echo (íves visszaverődésű zivatarív) arról híres, hogy rendkívül heves szélviharokat generálhat. Ez a rendszer már több településen is jelentős károkat okozott, köztük Tiszafüreden és Karcagon, ahol kidőlt fák és megrongált háztetők tucatjai kerültek a hatóságok látókörébe.
+  </p>
+  <p>
+    Az érintett területeken lakóknak javasoljuk: keressenek biztonságos helyet, zárják be az ablakokat, és kerüljék a kint tartózkodást. Debrecen városvezetése és a katasztrófavédelem már készültségbe helyezte magát.
+  </p>
+
+  <img src="https://metkep.hu/wp-content/uploads/sketch-1751974639565.jpg" alt="Bow echo mozgás" width="500" />
+
+  <h3>📡 Élő radar és figyelmeztetés</h3>
+  <p>
+    A legfrissebb radaradatok szerint a szupercella már Hajdúszoboszló környékén is detektálható. Az OMSZ és MetKép folyamatosan frissíti a térképeket.
+  </p>
+  <div style="display: flex; gap: 10px; align-items: center;">
+    <iframe width="500" height="300" src="https://www.met.hu/idojaras/aktualis_idojaras/radar/" title="OMSZ élő radar" style="border: none;"></iframe>
+    <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fmetkep.met%2Fvideos%2F2265424643916873%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+  </div>
+
+  <p>Források: OMSZ, MetKép, Facebook</p>
+
+  <footer>4. oldal / Aktuális veszély – Debreceni térség</footer>
+</div>
+
+</div>
+
+<div class="nav">
+  <button onclick="scrollPage(-1)">⬅ Előző oldal</button>
+  <button onclick="scrollPage(1)">Következő oldal ➡</button>
+</div>
+
+<!-- Modal for image zoom -->
+<div id="imgModal" onclick="closeModal(event)">
+  <span class="closeBtn" title="Bezárás">&times;</span>
+  <img id="modalImg" src="" alt="Nagyított kép" />
+</div>
+
+<script>
+  function scrollPage(direction) {
+    const book = document.getElementById('book');
+    const pageWidth = window.innerWidth;
+    book.scrollBy({ left: pageWidth * direction, behavior: 'smooth' });
+  }
+
+  // Open modal when image clicked
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const modal = document.getElementById('imgModal');
+      const modalImg = document.getElementById('modalImg');
+      modal.style.display = 'flex';
+      modalImg.src = this.src;
+      modalImg.alt = this.alt || 'Nagyított kép';
+    });
+  });
+
+  // Close modal when clicking outside image or on close button
+  function closeModal(e) {
+    if (
+      e.target.id === 'imgModal' ||
+      e.target.classList.contains('closeBtn')
+    ) {
+      const modal = document.getElementById('imgModal');
+      modal.style.display = 'none';
+      document.getElementById('modalImg').src = '';
+    }
+  }
+
+  // Close modal on ESC key
+  window.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      const modal = document.getElementById('imgModal');
+      modal.style.display = 'none';
+      document.getElementById('modalImg').src = '';
+    }
+  });
+</script>
+
+</body>
+</html>

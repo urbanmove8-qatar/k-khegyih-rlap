@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <title>📰 Kékhegy Hírlap – 2025. július 11.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: #faf7f1;
+      overflow: hidden;
+    }
+
+    .book {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: row;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+    }
+
+    .page {
+      flex: none;
+      width: 100vw;
+      height: 100vh;
+      padding: 40px;
+      box-sizing: border-box;
+      scroll-snap-align: start;
+      border-left: 3px double #004080;
+      border-right: 3px double #004080;
+      background: #fffef9;
+      box-shadow: inset 0 0 8px rgba(0,0,0,0.1);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      text-align: center;
+      border-bottom: 3px double #000;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    h1, h2 {
+      color: #002244;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #0078d7;
+      padding-bottom: 5px;
+    }
+
+    h3 {
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+
+    .author {
+      font-style: italic;
+      color: #555;
+      font-size: 0.9em;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #111;
+      line-height: 1.5;
+    }
+
+    footer {
+      margin-top: auto;
+      font-size: 0.9em;
+      color: #888;
+      text-align: center;
+      user-select: none;
+    }
+
+    .nav {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .nav button {
+      background: #0078d7;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      margin: 0 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav button:hover {
+      background: #005fa3;
+    }
+
+    /* Image zoom on hover */
+    img {
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Modal styles for clicked image */
+    #imgModal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.8);
+      align-items: center;
+      justify-content: center;
+    }
+    #imgModal img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 0 20px #000;
+    }
+    #imgModal .closeBtn {
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size: 2.5rem;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="book" id="book">
+
+  <!-- Page 1 – OMSZ Weather -->
+  <div class="page">
+    <header>
+      <h1>📰 KÉKHEGY HÍRLAP</h1>
+      <p>2025. július 13. • Vasárnap - Hatodik kiadás</p>
+      <p>Következő kiadás: Holnap 10:00</p>
+    </header>
+
+    <h2>🌩️ OMSZ: Mérsékelt zivatarriadó érvényben!</h2>
+    <p class="author">Írta: Tóth Anna 👱‍♀️ (OMSZ figyelmeztetés alapján)</p>
+    <p>
+      Az Országos Meteorológiai Szolgálat <strong>2025. július 12-én</strong>, szombaton kiadott <strong>mérsékelt zivatarriasztást</strong> Budapest és Kékhegy térségére. A figyelmeztetés szerint a következő 24 órában több hullámban is erős záporok, zivatarok, villámlások, valamint széllökések alakulhatnak ki, amelyek sebessége elérheti, sőt néhol meg is haladhatja a <strong>70 km/h-t</strong>. Ez a jelenség nem csak a hétvégi programokat veszélyezteti, hanem a lakosság testi épségét is, különösen a szabadtéri rendezvényeken, valamint a mezőgazdasági és közlekedési területeken.
+    </p>
+    <p>
+      Az OMSZ szerint a legnagyobb kockázatot a <strong>helyenként kialakuló jégeső</strong> jelenti, amely komoly károkat okozhat a mezőgazdasági területeken, konyhakertekben, gépjárművekben és a nem megfelelően rögzített építményekben is. A szakértők arra kérik a lakosságot, hogy ha lehet, <em>maradjanak fedett helyen</em>, zárják be az ablakokat, és ne parkoljanak fák alatt vagy olyan helyeken, ahol a szél által könnyen felkapható tárgyak veszélyt jelenthetnek.
+    </p>
+    <p>
+      A figyelmeztetés hatására több intézmény, köztük a TTBus Kft. is bejelentette, hogy <strong>elővigyázatosságból leállítják a közösségi közlekedést</strong> a legveszélyesebb időszakban. A vasúti járatok és a helyi buszok szombat éjféltől előreláthatólag vasárnap reggelig nem közlekednek. A döntést a biztonság érdekében hozták meg, különösen azután, hogy a legutóbbi vihar során több jármű is megrongálódott a megyében.
+    </p>
+    <p>
+      <strong>⚠️ Az OMSZ hangsúlyozta:</strong> a zivatarcellák mozgása gyors és nehezen előre jelezhető, így nem csak Kékhegy, de Budapest külvárosai és az M1-M7-es autópálya szakaszai is veszélyzónának számítanak. A lakosságot arra kérik, hogy kövessék a hivatalos időjárási frissítéseket, és lehetőség szerint ne induljanak útnak a késő esti órákban.
+    </p>
+
+    <img src="https://met.hu/img/warning/wbxX/20250713_0741//wbta20250713_0741+ts.png" alt="Zivatar előrejelzés térkép" height="auto" width="400">
+
+    <p>Forrás(ok): <a href="https://met.hu">OMSZ (HungaroMet)</a></p>
+
+    <footer>1. oldal / Időjárás – OMSZ jelentés</footer>
+  </div>
+
+  <!-- Page 2 – Magyar Telefon Zrt. Átkozott telefonszám -->
+  <div class="page">
+  <h3>🏎️ Drift Lali megőrült a főtéren</h3>
+  <p class="author">Írta: Józsi bácsi 🧓</p>
+  <p>
+    Szombat este Kékhegy békés lakói egy váratlan és veszélyes esemény szemtanúi lehettek, ami jócskán felkavarta a helyi közösséget. Egy fiatal, akit a TikTok és a helyi Facebook-csoportok csak <strong>Drift Laliként</strong> ismernek, <em>full gázon</em> száguldott be a város főterére egy <strong>2004-es BMW 3-as szériával</strong>, amit mindenki csak „a drift királyának” csúfol. Drift Lali állítólag hajnalban indult a budapesti rozsdaövezetből, onnan az M7-es autópályán át vezetett az útja egészen Kékhegyig. Egyenesen a körforgalomba csapódott, de nem ütközve, hanem <em>hátsókeréken csúsztatva</em>, versenyhanggal és lehúzott ablakokkal, mintha a Forma-1-es versenyekről szökött volna meg.
+  </p>
+  <p>
+    Többen a helyszínen megdöbbenve videózták a veszélyes mutatványokat, amelyek gyorsan bejárták a helyi internetet. Az egyik felvételen jól hallható, ahogy <strong>én, Józsi bácsi, a 74 éves nyugdíjas vasutas</strong>, aki évtizedeket töltött a MÁV-nál, méltatlankodva így szóltam: „<em>Hát én még a fiatal éveimben sem láttam ilyen őrültet, aki úgy driftel, hogy közben az életét is kockáztatja. Ha én volnék a főnök, még a MÁV-sínekre sem engedném fel!</em>” Szóval ezt gondoltam, és nem vagyok egyedül, mert a videók megosztásával több százan nevettek és bosszankodtak egyszerre.
+  </p>
+  <p>
+    Sőt, az egyik legnépszerűbb mémben Drift Lali BMW-je felkerült az <strong>OMSZ vihartérképére</strong>, ahogy elpörög a sötét viharfelhők alatt, ami igazán megkoronázta a botrányt. A rendőrség már nyomoz az ügyben, mert a helyiek szerint Drift Lali <strong>hamis rendszámmal</strong> közlekedik, és TikTokon „D1RTY-L” néven fut, ahol különböző autós trükköket mutat be, de a helyzet kezd komolyabbá válni.
+  </p>
+  <p>
+    A városvezetés egyértelművé tette, hogy az ilyen veszélyes és felelőtlen viselkedés <em>semmiképp sem elfogadható</em>, főleg amikor Kékhegyet éppen egy komoly viharriadó sújtja. A TTBus Kft. szóvivője így kommentálta az esetet: „<em>Nem elég, hogy jégeső és szél tombol, még egy BMW-s szellem is driftel a főtéren? Csak az hiányzik, hogy a zombik is előjöjjenek!</em>” – mondta nevetve, de a helyzet komoly, mert a közlekedésbiztonság mindenek felett áll.
+  </p>
+  <p>
+    Drift Lali nem ismeretlen az itteniek számára, hiszen 2024 őszén is feltűnt a környék hegyvidéki szakaszain, ahol állítólag megpróbált egy <strong>Trabantot driftre átalakítani</strong>, ám az első kanyarban a szalagkorlátnál végezte. Úgy tűnik, a BMW-vel most új szintre emelte a káoszt és a veszélyt. Egy helyi lakos a Kékhegy Chat csoportban így fogalmazott: „<em>Ez a srác veszélyesebb, mint a jégeső, mert legalább a jég nem csinál hangzavart meg nem füstöl az orrom alatt.</em>”
+  </p>
+  <p>
+    Ahogy mondani szoktam, a régi idők autósai sem csináltak ilyen őrült mutatványokat az utcán, inkább versenypályákon próbálták ki magukat. De hát a mai fiatalok... hát ez már egy más világ. Reméljük, hogy Drift Lali hamarosan megállítják, mielőtt komolyabb baj történik.
+  </p>
+  <footer>2. oldal / Drift Lali – Helyi botrány</footer>
+</div>
+
+  <!-- Page 3 – TTBus Kft. bejelentése -->
+  <div class="page">
+    <h2>🚌 TTBus Kft.: Közlekedési szolgáltatások felfüggesztése</h2>
+    <p class="author">Írta: Blaha Júlia 👩 (TTBus Kft.)</p>
+
+    <p>
+      A TTBus Kft. hivatalos közleményében bejelentette, hogy a <strong>holnapi, 2025. július 12-én éjfélkor várható jégesővel kísért mérsékelt zivatar</strong> miatt kénytelenek ideiglenesen leállítani a <strong>Kékhegy Vasút</strong> működését, valamint az érintett városi <strong>buszjáratokat</strong>. Ez a döntés a közlekedésbiztonság és az utasok védelme érdekében született meg, hiszen a zivatar okozta szélsőséges időjárási körülmények komoly veszélyeket rejtenek magukban, amelyek akár súlyos balesetekhez és anyagi károkhoz is vezethetnek.
+    </p>
+    <p>
+      A társaság vezetősége kiemelte, hogy az intézkedés nemcsak az utasok, hanem a dolgozók biztonságát is szem előtt tartja, továbbá segít elkerülni a közlekedési eszközök meghibásodását és az ebből adódó hosszabb javítási időszakokat. A TTBus Kft. folyamatosan figyelemmel kíséri a meteorológiai helyzet alakulását, és az időjárás javulásával haladéktalanul újraindítja a szolgáltatásokat, erről pedig haladéktalanul tájékoztatja az utazóközönséget.
+    </p>
+    <p>
+      Ezúton kérjük a lakosságot, hogy a vihar elmúltáig kerüljék a közösségi közlekedés használatát a Kékhegy térségében, és kísérjék figyelemmel a TTBus Kft. hivatalos közleményeit és frissítéseit. Együttműködésük és megértésük hozzájárul ahhoz, hogy mindenki biztonságban legyen, és a helyzet mihamarabb rendeződjön.</p>
+
+    <img src="https://files.catbox.moe/kz83nc.png" alt="TTBus busz" height="auto" width="500" />
+
+    <footer>3. oldal / TTBus bejelentés – Közlekedés szünetel</footer>
+  </div>
+
+</div>
+
+<div class="nav">
+  <button onclick="scrollPage(-1)">⬅ Előző oldal</button>
+  <button onclick="scrollPage(1)">Következő oldal ➡</button>
+</div>
+
+<!-- Modal for image zoom -->
+<div id="imgModal" onclick="closeModal(event)">
+  <span class="closeBtn" title="Bezárás">&times;</span>
+  <img id="modalImg" src="" alt="Nagyított kép" />
+</div>
+
+<script>
+  function scrollPage(direction) {
+    const book = document.getElementById('book');
+    const pageWidth = window.innerWidth;
+    book.scrollBy({ left: pageWidth * direction, behavior: 'smooth' });
+  }
+  
+  // Open modal when image clicked
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const modal = document.getElementById('imgModal');
+      const modalImg = document.getElementById('modalImg');
+      modal.style.display = 'flex';
+      modalImg.src = this.src;
+      modalImg.alt = this.alt || 'Nagyított kép';
+    });
+  });
+
+  // Close modal when clicking outside image or on close button
+  function closeModal(e) {
+    if (
+      e.target.id === 'imgModal' ||
+      e.target.classList.contains('closeBtn')
+    ) {
+      const modal = document.getElementById('imgModal');
+      modal.style.display = 'none';
+      document.getElementById('modalImg').src = '';
+    }
+  }
+
+  // Close modal on ESC key
+  window.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      const modal = document.getElementById('imgModal');
+      modal.style.display = 'none';
+      document.getElementById('modalImg').src = '';
+    }
+  });
+</script>
+
+</body>
+</html>

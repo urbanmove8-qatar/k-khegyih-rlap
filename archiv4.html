@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <title>📰 Kékhegy Hírlap – 2025. július 11.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: #faf7f1;
+      overflow: hidden;
+    }
+
+    .book {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: row;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+    }
+
+    .page {
+      flex: none;
+      width: 100vw;
+      height: 100vh;
+      padding: 40px;
+      box-sizing: border-box;
+      scroll-snap-align: start;
+      border-left: 3px double #004080;
+      border-right: 3px double #004080;
+      background: #fffef9;
+      box-shadow: inset 0 0 8px rgba(0,0,0,0.1);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      text-align: center;
+      border-bottom: 3px double #000;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    h1, h2 {
+      color: #002244;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #0078d7;
+      padding-bottom: 5px;
+    }
+
+    h3 {
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+
+    .author {
+      font-style: italic;
+      color: #555;
+      font-size: 0.9em;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #111;
+      line-height: 1.5;
+    }
+
+    footer {
+      margin-top: auto;
+      font-size: 0.9em;
+      color: #888;
+      text-align: center;
+      user-select: none;
+    }
+
+    .nav {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .nav button {
+      background: #0078d7;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      margin: 0 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav button:hover {
+      background: #005fa3;
+    }
+
+    /* Image zoom on hover */
+    img {
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Modal styles for clicked image */
+    #imgModal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.8);
+      align-items: center;
+      justify-content: center;
+    }
+    #imgModal img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 0 20px #000;
+    }
+    #imgModal .closeBtn {
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size: 2.5rem;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="book" id="book">
+
+  <!-- Page 1 – OMSZ Weather -->
+  <div class="page">
+    <header>
+      <header>
+        <h1>📰 KÉKHEGY HÍRLAP</h1>
+        <p>2025. július 11. • Péntek - Ötödik kiadás</p>
+        <p>Következő kiadás: Holnap 10:00</p>
+      </header>
+
+    <h2>🌩️ OMSZ: Mérsékelt zivatarriadó érvényben!</h2>
+    <p class="author">Írta: Tóth Anna 👱‍♀️ (OMSZ figyelmeztetés alapján)</p>
+    <p>
+      Az Országos Meteorológiai Szolgálat figyelmeztetést adott ki <strong>mérsékelt zivatarveszély</strong> miatt Kékhegy és Budapest térségére. A nap folyamán <strong>intenzív záporok, villámlás és erős széllökések</strong> (akár 60–70 km/h) is előfordulhatnak.
+    </p>
+    <p>
+      A zivatarokat néhol <strong>15–30 mm-es csapadék</strong> is kísérheti rövid idő alatt, ezért a lakosságot kérik, hogy kerüljék a szabadtéri tartózkodást, és legyenek figyelmesek a közlekedésben.
+    </p>
+    <p>
+      <strong>⚠️ Frissítés:</strong> OMSZ ezt a figyelmeztetést <em>már előző nap</em> jelezte előre, tehát nem érheti meglepetésként senkit!
+    </p>
+
+    <img src="https://www.idokep.hu/kistersegi/riaszt_48_transp.png?1752127840" alt="Zivatar előrejelzés térkép" height="auto" width="400">
+    
+    <p>Forrás(ok): <a href="https://idokep.hu">Időkép.hu</a></p>
+
+    <footer>1. oldal / Időjárás – OMSZ jelentés</footer>
+  </div>
+
+  <!-- Page 2 – Nyírmeggyes Update -->
+  <div class="page">
+    <h2>🛠️ Nyírmeggyes V0.04a – Júliusi hibajavító frissítés</h2>
+    <p class="author">Írta: Lakatos József 👨</p>
+    <p>
+      A Nyírmeggyes map új <strong>V0.04a Hotfixe</strong> elérhető! Az alábbi frissítések kerültek be tegnap, 2025.07.09-én:
+    </p>
+    <ul>
+      <li>✅ Credo Optinell 12 belső & külső textúra bug javítva</li>
+      <li>🔁 Credo Econellek visszakerültek (felújításukig)</li>
+      <li>📤 MAN Lion's City 12c (CNG) ideiglenesen kivéve</li>
+      <li>🧢 Új admin buszok (senkit nem érdekel 😅)</li>
+      <li>🏗️ Autóbuszgarázs és környéke átdolgozva</li>
+      <li>🪑 Összes pad lecserélve</li>
+      <li>🆕 Kisebb újítások a buszmegállókban</li>
+      <li>🐞 Rengeteg bugfix (tényleg sok volt :/)</li>
+    </ul>
+    <p>
+      A fejlesztők üzenete: <em>"Jó játékot kívánunk mindenkinek!"</em>
+    </p>
+
+    <footer>2. oldal / Játékfrissítés – Nyírmeggyes V0.04a</footer>
+  </div>
+  
+  <div class="page"> 
+  <h2>🛑 Közlekedési vészhelyzet Kékhegyben – Minden járat leállítva!</h2>
+  <p class="author">Írta: Blaha Júlia 👩 (TTBus Kft dolgozó)</p>
+
+  <p>
+    A 2025. július 10-én kiadott <strong>mérsékelt zivatarriadó</strong> következményeként Kékhegy városvezetése, az OMSZ, valamint a TTBus Kft. és a Kékhegy Vasút hivatalos döntése alapján minden közlekedési szolgáltatás <strong>azonnali hatállyal felfüggesztésre került</strong>.
+  </p>
+
+  <h3>📋 Felfüggesztett szolgáltatások:</h3>
+  <ul>
+    <li>⛔ <strong>TTBus 9-es és 11-es járat</strong> – A városon belüli autóbuszjáratok <u>teljesen leálltak</u>.</li>
+    <li>⛔ <strong>Kékhegy Vasút (C50 dízelvonat)</strong> – A vasútvonal forgalma <u>szünetel</u> a pálya védelme és az utasbiztonság miatt.</li>
+  </ul>
+
+  <h3>⚠️ Miért került sor erre a döntésre?</h3>
+  <p>
+    A zivatarokkal érkező széllökések elérhetik a <strong>70 km/h-s sebességet</strong>, ami komoly kockázatot jelent az alacsony tömegközlekedési járművekre, különösen a C50 típusú könnyűsúlyú vasúti szerelvényekre, illetve a városi buszokra. Emellett fennáll a veszélye:
+  </p>
+  <ul>
+    <li>fák kidőlésének,</li>
+    <li>villámcsapás okozta felsővezeték-zárlatoknak,</li>
+    <li>útlezárásoknak vízátfolyás vagy balesetek miatt.</li>
+  </ul>
+
+  <h3>🔧 Műszaki és személyzeti szempontok:</h3>
+  <p>
+    A járművezetők és karbantartók biztonsága elsődleges. A TTBus garázsvezetése és a Kékhegy Vasút diszpécserei minden járművet visszarendeltek a telephelyre, ahol védett helyen várják a vihar elvonulását. A C50 motorvonatok üzemeltetése különösen veszélyes ilyen időben, mivel a vágány menti területeken gyakoriak a sárfolyások, és a gázolajos rendszerek érzékenyek a nedvességre.
+  </p>
+
+  <h3>📢 Mikor indul újra a közlekedés?</h3>
+  <p>
+    Az újraindulás a <strong>zivatarriadó visszavonása</strong> után, a pályák és útvonalak műszaki ellenőrzését követően történik meg. A hivatalos újranyitásról a <em>Kékhegy Hírlap</em> holnapi számában, valamint a TTBus és Kékhegy Vasút közleményeiben lehet majd tájékozódni.
+  </p>
+
+  <p><strong>Kérjük a lakosokat:</strong> ne induljanak útnak közösségi közlekedéssel, és maradjanak biztonságos helyen! Figyeljék a <a href="https://met.hu">met.hu</a> és <a href="https://idokep.hu">idokep.hu</a> figyelmeztetéseit!</p>
+  <img src="https://files.catbox.moe/kz83nc.png" alt="TTBus busz" height="auto" width="500" />
+
+  <footer>3. oldal / Vészhelyzet – Teljes közlekedési leállás</footer>
+</div>
+
+</div>
+
+<div class="nav">
+  <button onclick="scrollPage(-1)">⬅ Előző oldal</button>
+  <button onclick="scrollPage(1)">Következő oldal ➡</button>
+</div>
+
+<!-- Modal for image zoom -->
+<div id="imgModal" onclick="closeModal(event)">
+  <span class="closeBtn" title="Bezárás">&times;</span>
+  <img id="modalImg" src="" alt="Nagyított kép" />
+</div>
+
+<script>
+  function scrollPage(direction) {
+    const book = document.getElementById('book');
+    const pageWidth = window.innerWidth;
+    book.scrollBy({ left: pageWidth * direction, behavior: 'smooth' });
+  }
+  
+  // Open modal when image clicked
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const modal = document.getElementById('imgModal');
+      const modalImg = document.getElementById('modalImg');
+      modal.style.display = 'flex';
+      modalImg.src = this.src;
+      modalImg.alt = this.alt || 'Nagyított kép';
+    });
+  });
+
+  // Close modal when clicking outside image or on close button
+  function closeModal(e) {
+    if (
+      e.target.id === 'imgModal' ||
+      e.target.classList.contains('closeBtn')
+    ) {
+      const modal = document.getElementById('imgModal');
+      modal.style.display = 'none';
+      document.getElementById('modalImg').src = '';
+    }
+  }
+
+  // Close modal on ESC key
+  window.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      const modal = document.getElementById('imgModal');
+      modal.style.display = 'none';
+      document.getElementById('modalImg').src = '';
+    }
+  });
+</script>
+
+</body>
+</html>
